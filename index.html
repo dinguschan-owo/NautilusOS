@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NautilusOS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+  
+  
+    <div id="bootloader">
+      <div class="boot-logo"><i class="fas fa-fish"></i></div>
+      <h1 class="boot-title">NAUTILUS OS</h1>
+      <div class="boot-version">Version 1.0</div>
+      <div class="boot-options" id="bootOptions">
+        <div class="boot-option selected" data-index="0">
+          <i class="fas fa-play"></i> <span>Nautilus OS</span>
+        </div>
+        <div class="boot-option" data-index="1">
+          <i class="fas fa-code"></i> <span>Nautilus OS (Command Line)</span>
+        </div>
+      </div>
+      <div class="boot-hint">
+        <i class="fas fa-arrow-up"></i> / <i class="fas fa-arrow-down"></i> to
+        switch entry, Enter <i class="fas fa-level-down-alt"></i> to select and
+        boot
+      </div>
+      <div id="bottom-text" style="position: absolute; bottom: 0.5rem; color: #888;">
+        made with <i class="fa-solid fa-heart"></i> by dinguschan
+      </div>
+      <div class="boot-loading" id="bootLoading">
+        <div class="loading-bar-container">
+          <div class="loading-bar" id="loadingBar"></div>
+        </div>
+        <div class="boot-messages" id="bootMessages"></div>
+      </div>
+    </div>
+
+    <div id="login">
+      <div class="login-wrapper">
+        <div class="login-left">
+          <div class="login-time">
+            <div class="login-time-main" id="loginClock">12:00</div>
+            <div class="login-time-date" id="loginDate">Monday, January 1</div>
+          </div>
+
+          <div class="login-info-card">
+            <div class="info-card-title">
+              <i class="fas fa-info-circle"></i> System Information
+            </div>
+            <div class="info-card-content">
+              <div class="info-stat">
+                <span class="info-stat-label">OS</span>
+                <span class="info-stat-value">NautilusOS</span>
+              </div>
+              <div class="info-stat">
+                <span class="info-stat-label">Version</span>
+                <span class="info-stat-value">1.0</span>
+              </div>
+              <div class="info-stat">
+                <span class="info-stat-label">Browser</span>
+                <span class="info-stat-value" id="browserInfo">Detecting...</span>
+              </div>
+              <div class="info-stat">
+                <span class="info-stat-label">Uptime</span>
+                <span class="info-stat-value" id="uptime">0m</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="login-container" style="padding: 3rem 2.5rem 1.5rem 2.5rem;">
+          <div class="login-avatar"><i class="fas fa-user"></i></div>
+          <h2 class="login-title" id="loginGreeting">Welcome Back</h2>
+          <p class="login-subtitle">Sign in to continue</p>
+          <input type="text" class="login-input" id="username" placeholder="Username" value="">
+          <div class="login-input-wrapper">
+            <input type="password" class="login-input" id="password" placeholder="Password" value="">
+            <i class="fas fa-eye password-toggle" id="passwordToggle" onclick="togglePassword()"></i>
+          </div>
+          <button class="login-btn" onclick="login()">Sign In</button>
+          <a href="#" onclick="event.preventDefault(); forgotPassword()" style="display: block; text-align: center; margin-top: 1rem; margin-bottom: -0.5rem; color: var(--text-secondary); font-size: 0.85rem; text-decoration: underline; transition: color 0.2s ease;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">
+            Forgot Password?
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="setup" style="position: fixed; inset: 0; background: linear-gradient(135deg, #0a0e1a 0%, #151923 100%); display: none; align-items: center; justify-content: center; z-index: 9999; opacity: 0; transition: opacity 0.5s ease; padding: 2rem;">
+      <div style="position: absolute; width: 170px; height: 170px; border-radius: 50%; background: rgba(125, 211, 192, 0.04); top: 5%; left: 2%; animation: float 7s ease-in-out infinite;"></div>
+      <div style="position: absolute; width: 130px; height: 130px; border-radius: 50%; background: rgba(125, 211, 192, 0.05); top: 12%; right: 8%; animation: float 9s ease-in-out infinite 1.5s;"></div>
+      <div style="position: absolute; width: 140px; height: 140px; border-radius: 50%; background: rgba(125, 211, 192, 0.03); top: 68%; left: 5%; animation: float 8s ease-in-out infinite 3s;"></div>
+      <div style="position: absolute; width: 120px; height: 120px; border-radius: 50%; background: rgba(125, 211, 192, 0.06); bottom: 8%; right: 12%; animation: float 10s ease-in-out infinite 4.5s;"></div>
+      <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(125, 211, 192, 0.04); top: 30%; left: 20%; animation: float 11s ease-in-out infinite 2s;"></div>
+      <div style="position: absolute; width: 190px; height: 190px; border-radius: 50%; background: rgba(125, 211, 192, 0.05); bottom: 30%; right: 15%; animation: float 6s ease-in-out infinite 5s;"></div>
+      <div style="position: absolute; width: 130px; height: 130px; border-radius: 50%; background: rgba(125, 211, 192, 0.05); top: 5%; right: 52%; animation: float 6s ease-in-out infinite 5s;"></div>
+      <div style="position: absolute; width: 160px; height: 160px; border-radius: 50%; background: rgba(125, 211, 192, 0.05); bottom: 10%; left: 52%; animation: float 6s ease-in-out infinite 5s;"></div>
+
+      <div style="background: rgba(21, 25, 35, 0.7); backdrop-filter: blur(40px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 3rem 2.5rem; width: 520px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; animation: float 3s ease-in-out infinite;">
+            <i class="fas fa-fish" style="font-size: 3rem; color: var(--bg-primary);"></i>
+          </div>
+          <h2 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 700;">
+            Welcome to NautilusOS
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 1rem;">
+            Let's set up your account
+          </p>
+        </div>
+
+<div id="setupStep1" style="display: block;">
+    <div style="margin-bottom: 1.5rem;">
+        <label style="display: block; color: var(--text-primary); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 500;">Choose a Username</label>
+        <input type="text" id="setupUsername" placeholder="Enter your username" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 35, 48, 0.8); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; transition: all 0.2s ease;" onfocus="this.style.borderColor='var(--accent)'; this.style.background='rgba(30, 35, 48, 0.95)'" onblur="this.style.borderColor='var(--border)'; this.style.background='rgba(30, 35, 48, 0.8)'">
+    </div>
+    <button onclick="setupStep1Next()" style="width: 100%; padding: 0.875rem; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border: none; border-radius: 10px; color: var(--bg-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; margin-bottom: 1rem;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(125, 211, 192, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        Continue
+    </button>
+    
+<div style="display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0;">
+    <div style="flex: 1; height: 1px; background: var(--border);"></div>
+    <span style="color: var(--text-secondary); font-size: 0.85rem; white-space: nowrap;">OR</span>
+    <div style="flex: 1; height: 1px; background: var(--border);"></div>
+</div>
+    
+    <label for="importProfileInput" style="display: block; width: 100%;  padding: 0.875rem; background: rgba(125, 211, 192, 0.15); border: 1px solid rgba(125, 211, 192, 0.3); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; text-align: center;" onmouseover="this.style.background='rgba(125, 211, 192, 0.25)'; this.style.borderColor='rgba(125, 211, 192, 0.5)'" onmouseout="this.style.background='rgba(125, 211, 192, 0.15)'; this.style.borderColor='rgba(125, 211, 192, 0.3)'">
+        <i class="fas fa-file-import"></i>&nbsp;&nbsp;Import Profile
+        <input type="file" id="importProfileInput" accept=".nautilusprofile" onchange="importProfile(event)" style="display: none;">
+    </label>
+    <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.75rem; text-align: center;">
+        Import a previously exported profile to restore your settings and data
+    </p>
+</div>
+
+        <div id="setupStep2" style="display: none;">
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; color: var(--text-primary); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 500;">Create a Password</label>
+            <div class="login-input-wrapper" style="position: relative;">
+              <input type="password" id="setupPassword" placeholder="Enter your password" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 35, 48, 0.8); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0.875rem; transition: all 0.2s ease;" onfocus="this.style.borderColor='var(--accent)'; this.style.background='rgba(30, 35, 48, 0.95)'" onblur="this.style.borderColor='var(--border)'; this.style.background='rgba(30, 35, 48, 0.8)'">
+              <i class="fas fa-eye password-toggle" id="setupPasswordToggle" onclick="toggleSetupPassword()" style="position: absolute; right: 1rem; top: 40%; transform: translateY(-50%); cursor: pointer; color: var(--text-secondary); transition: color 0.2s ease;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-secondary)'"></i>
+            </div>
+            <input type="password" id="setupPasswordConfirm" placeholder="Confirm your password" style="width: 100%; padding: 0.875rem 1rem; background: rgba(30, 35, 48, 0.8); border: 1px solid var(--border); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; transition: all 0.2s ease;" onfocus="this.style.borderColor='var(--accent)'; this.style.background='rgba(30, 35, 48, 0.95)'" onblur="this.style.borderColor='var(--border)'; this.style.background='rgba(30, 35, 48, 0.8)'">
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button onclick="setupStep2Back()" style="flex: 1; padding: 0.875rem; background: rgba(125, 211, 192, 0.15); border: 1px solid rgba(125, 211, 192, 0.3); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(125, 211, 192, 0.25)'; this.style.borderColor='rgba(125, 211, 192, 0.5)'" onmouseout="this.style.background='rgba(125, 211, 192, 0.15)'; this.style.borderColor='rgba(125, 211, 192, 0.3)'">
+              Back
+            </button>
+            <button onclick="setupStep2Next()" style="flex: 1; padding: 0.875rem; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border: none; border-radius: 10px; color: var(--bg-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(125, 211, 192, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+              Continue
+            </button>
+          </div>
+        </div>
+
+<div id="setupStep3" style="display: none;">
+    <div style="margin-bottom: 1.5rem;">
+        <h3 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Install Applications</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">Select additional apps to install (you can always add more later from the App Store)</p>
+        
+        <div id="setupAppOptions" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <label style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(30, 35, 48, 0.6); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(125, 211, 192, 0.1)'; this.style.borderColor='var(--accent)'" onmouseout="this.style.background='rgba(30, 35, 48, 0.6)'; this.style.borderColor='var(--border)'">
+                <input type="checkbox" value="startup-apps" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--accent);">
+                <div style="flex: 1;">
+                    <div style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-rocket" style="color: var(--accent);"></i>
+                        Startup Apps
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 0.8rem;">Control which apps launch automatically on login</div>
+                </div>
+            </label>
+            
+            <label style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(30, 35, 48, 0.6); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(125, 211, 192, 0.1)'; this.style.borderColor='var(--accent)'" onmouseout="this.style.background='rgba(30, 35, 48, 0.6)'; this.style.borderColor='var(--border)'">
+                <input type="checkbox" value="task-manager" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--accent);">
+                <div style="flex: 1;">
+                    <div style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-tasks" style="color: var(--accent);"></i>
+                        Task Manager
+                    </div>
+                    <div style="color: var(--text-secondary); font-size: 0.8rem;">Monitor and manage running applications</div>
+                </div>
+            </label>
+        </div>
+    </div>
+    
+    <div style="display: flex; gap: 0.75rem;">
+        <button onclick="setupStep3Back()" style="flex: 1; padding: 0.875rem; background: rgba(125, 211, 192, 0.15); border: 1px solid rgba(125, 211, 192, 0.3); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(125, 211, 192, 0.25)'; this.style.borderColor='rgba(125, 211, 192, 0.5)'" onmouseout="this.style.background='rgba(125, 211, 192, 0.15)'; this.style.borderColor='rgba(125, 211, 192, 0.3)'">
+            Back
+        </button>
+        <button onclick="setupStep3Next()" style="flex: 1; padding: 0.875rem; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border: none; border-radius: 10px; color: var(--bg-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(125, 211, 192, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+            Continue
+        </button>
+    </div>
+</div>
+
+<div id="setupStep4" style="display: none;">
+    <div style="margin-bottom: 1.5rem;">
+        <h3 style="color: var(--text-primary); font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Customize Your Experience</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">Select themes to install (you can always add more later)</p>
+
+            <div id="setupThemeOptions" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <label style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(30, 35, 48, 0.6); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(125, 211, 192, 0.1)'; this.style.borderColor='var(--accent)'" onmouseout="this.style.background='rgba(30, 35, 48, 0.6)'; this.style.borderColor='var(--border)'">
+                <input type="checkbox" value="light" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--accent);">
+                <div style="flex: 1;">
+                  <div style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-sun" style="color: var(--accent);"></i>
+                    Light Theme
+                  </div>
+                  <div style="color: var(--text-secondary); font-size: 0.8rem;">
+                    Bright and clean interface for daytime use
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+<div style="display: flex; gap: 0.75rem;">
+    <button onclick="setupStep4Back()" style="flex: 1; padding: 0.875rem; background: rgba(125, 211, 192, 0.15); border: 1px solid rgba(125, 211, 192, 0.3); border-radius: 10px; color: var(--text-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(125, 211, 192, 0.25)'; this.style.borderColor='rgba(125, 211, 192, 0.5)'" onmouseout="this.style.background='rgba(125, 211, 192, 0.15)'; this.style.borderColor='rgba(125, 211, 192, 0.3)'">
+        Back
+    </button>
+    <button onclick="setupComplete()" style="flex: 2; padding: 0.875rem; background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border: none; border-radius: 10px; color: var(--bg-primary); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(125, 211, 192, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <i class="fas fa-check"></i> Finish Setup
+    </button>
+</div>
+        </div>
+      </div>
+    </div>
+    <div id="commandLineMode">
+      <div class="cli-terminal" id="cliTerminal">
+        <div class="cli-line" style="color: var(--accent);">
+          NautilusOS Command Line Interface v1.0
+        </div>
+        <div class="cli-line" style="color: #888; margin-bottom: 1rem;">
+          Type 'help' for available commands, 'gui' to switch to graphical mode
+        </div>
+        <div class="cli-line">
+          <span class="cli-prompt">user@nautilusos:~$</span>
+          <input type="text" class="cli-input" id="cliInput" onkeypress="handleCLIInput(event)">
+        </div>
+      </div>
+    </div>
+
+    <div id="desktop">
+      <div class="wallpaper">
+        <i class="fas fa-fish wallpaper-icon"></i>
+        <div class="wallpaper-text">NautilusOS</div>
+        <p class="wallpaper-byline">by dinguschan</p>
+      </div>
+
+      <div class="desktop-icons" id="desktopIcons">
+        <div class="desktop-icon" ondblclick="openApp('files')" data-app="files">
+          <i class="fas fa-folder"></i> <span>Files</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('terminal')" data-app="terminal">
+          <i class="fas fa-terminal"></i> <span>Terminal</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('settings')" data-app="settings">
+          <i class="fas fa-cog"></i> <span>Settings</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('editor')" data-app="editor">
+          <i class="fas fa-edit"></i> <span>Text Editor</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('music')" data-app="music">
+          <i class="fas fa-music"></i> <span>Music</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('photos')" data-app="photos">
+          <i class="fas fa-images"></i> <span>Photos</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('help')" data-app="help">
+          <i class="fas fa-question-circle"></i> <span>Help</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('whatsnew')" data-app="whatsnew">
+          <i class="fas fa-star"></i> <span>What's New</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('appstore')" data-app="appstore">
+          <i class="fas fa-store"></i> <span>App Store</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('calculator')" data-app="calculator">
+          <i class="fas fa-calculator"></i> <span>Calculator</span>
+        </div>
+        <div class="desktop-icon" ondblclick="openApp('cloaking')" data-app="cloaking">
+    <i class="fas fa-mask"></i> <span>Cloaking</span>
+</div>
+        <div class="desktop-icon" ondblclick="openApp('browser')" data-app="browser">
+          <i class="fas fa-globe"></i> <span>Nautilus Browser</span>
+        </div>
+      </div>
+      <div class="taskbar">
+        <div class="taskbar-icon" onclick="toggleStartMenu()">
+          <i class="fas fa-fish"></i>
+        </div>
+        <div class="taskbar-divider"></div>
+        <div class="taskbar-icon" onclick="openApp('files')" title="Files" data-app="files">
+          <i class="fas fa-folder"></i>
+        </div>
+        <div class="taskbar-icon" onclick="openApp('terminal')" title="Terminal" data-app="terminal">
+          <i class="fas fa-terminal"></i>
+        </div>
+        <div class="taskbar-icon" onclick="openApp('browser')" title="Browser" data-app="browser">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div class="taskbar-icon" onclick="openApp('settings')" title="Settings" data-app="settings">
+          <i class="fas fa-cog"></i>
+        </div>
+        <div class="taskbar-icon" onclick="openApp('cloaking')" title="Cloaking" data-app="cloaking">
+    <i class="fas fa-mask"></i>
+</div>
+        <div class="taskbar-divider"></div>
+        <div class="system-tray">
+          <div class="taskbar-icon" onclick="toggleNotificationCenter()" title="Notifications" id="notificationBell">
+            <i class="fas fa-bell"></i>
+          </div>
+          <div class="taskbar-icon" onclick="toggleQuickActions()" title="Quick Actions">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <span id="clock"></span>
+        </div>
+      </div>
+
+      <div class="start-menu" id="startMenu">
+        <div class="start-header">
+          <div class="start-avatar"><i class="fas fa-user"></i></div>
+          <div class="start-user">
+            <h3 id="displayUsername">User</h3>
+            <p>Standard User</p>
+          </div>
+          <button class="start-signout-btn" onclick="signOutToLogin()" title="Sign Out" style="background: rgba(125, 211, 192, 0.15); border-color: rgba(125, 211, 192, 0.3); color: var(--accent);">
+            <i class="fas fa-sign-out-alt"></i> <span>Sign Out</span>
+          </button>
+          <button class="start-signout-btn" onclick="signOut()" title="Shut Down">
+            <i class="fas fa-power-off"></i> <span>Shut Down</span>
+          </button>
+        </div>
+        <div class="app-grid">
+          <div class="app-item" onclick="openApp('files')">
+            <i class="fas fa-folder"></i> <span>Files</span>
+          </div>
+          <div class="app-item" onclick="openApp('terminal')">
+            <i class="fas fa-terminal"></i> <span>Terminal</span>
+          </div>
+          <div class="app-item" onclick="openApp('browser')">
+            <i class="fas fa-globe"></i> <span>Nautilus Browser</span>
+          </div>
+          <div class="app-item" onclick="openApp('settings')">
+            <i class="fas fa-cog"></i> <span>Settings</span>
+          </div>
+          <div class="app-item" onclick="openApp('editor')">
+            <i class="fas fa-edit"></i> <span>Text Editor</span>
+          </div>
+          <div class="app-item" onclick="openApp('music')">
+            <i class="fas fa-music"></i> <span>Music</span>
+          </div>
+          <div class="app-item" onclick="openApp('photos')">
+            <i class="fas fa-images"></i> <span>Photos</span>
+          </div>
+          <div class="app-item" onclick="openApp('help')">
+            <i class="fas fa-question-circle"></i> <span>Help</span>
+          </div>
+          <div class="app-item" onclick="openApp('whatsnew')">
+            <i class="fas fa-star"></i> <span>What's New</span>
+          </div>
+          <div class="app-item" onclick="openApp('appstore')">
+            <i class="fas fa-store"></i> <span>App Store</span>
+          </div>
+          <div class="app-item" onclick="openApp('calculator')">
+            <i class="fas fa-calculator"></i> <span>Calculator</span>
+          </div>
+          <div class="app-item" onclick="openApp('cloaking')">
+    <i class="fas fa-mask"></i> <span>Cloaking</span>
+</div>
+          <div id="installedAppsInStartMenu"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <div class="context-menu" id="contextMenu"></div>
+    <div class="quick-actions" id="quickActions">
+      <div class="quick-actions-header">
+        <i class="fas fa-bolt"></i> Quick Actions
+      </div>
+      <div class="quick-action-item" onclick="hideQuickActions(); takeScreenshot()">
+        <i class="fas fa-camera"></i>
+        <div class="quick-action-content">
+          <div class="quick-action-title">Screenshot</div>
+          <div class="quick-action-desc">Capture your desktop</div>
+        </div>
+      </div>
+      <div class="quick-action-item" onclick="hideQuickActions(); closeAllWindows()">
+        <i class="fas fa-times-circle"></i>
+        <div class="quick-action-content">
+          <div class="quick-action-title">Close All</div>
+          <div class="quick-action-desc">Close all windows</div>
+        </div>
+      </div>
+      <div class="quick-action-item" onclick="hideQuickActions(); signOutToLogin()">
+        <i class="fas fa-sign-out-alt"></i>
+        <div class="quick-action-content">
+          <div class="quick-action-title">Sign Out</div>
+          <div class="quick-action-desc">Return to login screen</div>
+        </div>
+      </div>
+      <div class="quick-action-item" onclick="hideQuickActions(); signOut()">
+        <i class="fas fa-power-off"></i>
+        <div class="quick-action-content">
+          <div class="quick-action-title">Shut Down</div>
+          <div class="quick-action-desc">Return to home page</div>
+        </div>
+      </div>
+    </div>
+    <div class="notification-center" id="notificationCenter">
+      <div class="notification-center-header">
+        <h3><i class="fas fa-bell"></i> Notifications</h3>
+        <button class="notification-center-clear" onclick="clearAllNotifications()">
+          Clear All
+        </button>
+      </div>
+      <div class="notification-center-list" id="notificationList">
+        <div class="notification-center-empty">
+          <i class="fas fa-bell-slash"></i>
+          <p>No notifications</p>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-indicator-circle">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+    <div class="custom-modal" id="customModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-icon" id="modalIcon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <div class="modal-title" id="modalTitle">Confirm</div>
+        </div>
+        <div class="modal-body" id="modalBody">Are you sure?</div>
+        <div id="modalInputContainer"></div>
+        <div class="modal-buttons" id="modalButtons">
+          <button class="modal-btn modal-btn-secondary" onclick="closeModal()">
+            Cancel
+          </button>
+          <button class="modal-btn modal-btn-primary" onclick="confirmModal()">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="context-menu" id="contextMenu"></div>
+<div class="properties-tooltip" id="propertiesTooltip">
+    <div class="properties-close" onclick="hideProperties()">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="properties-header">
+        <div class="properties-icon" id="propIcon">
+            <i class="fas fa-folder"></i>
+        </div>
+        <div class="properties-title">
+            <div class="properties-name" id="propName">Application</div>
+            <div class="properties-type">Application</div>
+        </div>
+    </div>
+    <div class="properties-body">
+        <div class="properties-row">
+            <span class="properties-label">Status</span>
+            <span class="properties-badge preinstalled" id="propStatus">Preinstalled</span>
+        </div>
+        <div class="properties-row">
+            <span class="properties-label">Type</span>
+            <span class="properties-value" id="propType">System Application</span>
+        </div>
+        <div class="properties-row">
+            <span class="properties-label">Location</span>
+            <span class="properties-value">Desktop</span>
+        </div>
+    </div>
+</div>
+    
+  
+
+</body></html>
