@@ -1,4 +1,4 @@
-* {
+              * {
                   margin: 0;
                   padding: 0;
                   box-sizing: border-box;
@@ -2921,6 +2921,7 @@
           border-bottom: 1px solid var(--border);
           padding: 0.5rem;
       }
+
 
       .browser-tabs::-webkit-scrollbar {
           height: 4px;
