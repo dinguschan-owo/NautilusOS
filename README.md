@@ -1,4 +1,4 @@
-<img width="1918" height="906" alt="image" src="https://github.com/user-attachments/assets/ba1a2bb1-1f53-4598-b9f8-3b133171fd1d" /># NautilusOS
+## NautilusOS
 
 NautilusOS is a web based operating system built entirely in html, css, and js and my biggest project yet!!  
 boot it up, log in, and mess around like it’s a real desktop — apps, windows, file explorer, taskbar, and more.
