@@ -1,4 +1,4 @@
-let windows = {};
+              let windows = {};
               let zIndexCounter = 100;
               let currentUsername = 'User';
               let focusedWindow = null;
@@ -279,6 +279,7 @@ const appMetadata = {
 
                   return result;
               }
+
 
               function handleCLIInput(e) {
                   if (e.key === 'Enter') {
@@ -3596,6 +3597,7 @@ if (e.target.closest('.desktop-icon')) {
           display.textContent = calcCurrentValue;
       }
       let notificationHistory = [];
+
 
       function toggleNotificationCenter() {
           const notif = document.getElementById('notificationCenter');
