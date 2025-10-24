@@ -23,6 +23,23 @@
                   --text-primary: #e8eaed;
                   --text-secondary: #9aa0a6;
                   --border: #7dd3c0;
+                    --error-red: #ef4444;
+    --error-red-hover: #dc2626;
+    --error-red-bg: rgba(239, 68, 68, 0.15);
+    --error-red-border: rgba(239, 68, 68, 0.3);
+    --success-green: #4ade80;
+    --overlay-dark: rgba(0, 0, 0, 0.8);
+    --overlay-darker: rgba(0, 0, 0, 0.9);
+    --glass-bg: rgba(21, 25, 35, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --pure-black: #000;
+    --pure-white: #fff;
+    --gray-dark: #888;
+    --gray-light: #222;
+    --transparent-white-1: rgba(255, 255, 255, 0.1);
+    --transparent-white-2: rgba(255, 255, 255, 0.2);
+    --transparent-white-5: rgba(255, 255, 255, 0.05);
+    --transparent-white-8: rgba(255, 255, 255, 0.08);
               }
 
               body {
@@ -130,7 +147,7 @@
               .loading-bar-container {
                   width: 100%;
                   height: 4px;
-                  background: #222;
+                      background: var(--gray-light);
                   margin-bottom: 1.5rem;
                   overflow: hidden;
                   border-radius: 1px;
@@ -138,7 +155,7 @@
 
               .loading-bar {
                   height: 100%;
-                  background: #fff;
+                  background: var(--pure-white);
                   width: 0%;
                   transition: width 0.3s ease;
                   border-radius: 1px;
@@ -164,8 +181,7 @@
               #login {
                   position: fixed;
                   inset: 0;
-                  background: linear-gradient(135deg, #0a0e1a 0%, #151923 100%);
-                  display: none;
+background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);                  display: none;
                   align-items: center;
                   justify-content: center;
                   z-index: 9999;
@@ -572,11 +588,11 @@
 
       .taskmanager-process-action {
           padding: 0.5rem 1rem;
-          background: rgba(239, 68, 68, 0.15);
-          border: 1px solid rgba(239, 68, 68, 0.3);
           border-radius: 8px;
-          color: #ef4444;
-          cursor: pointer;
+    background: var(--error-red-bg);
+    border: 1px solid var(--error-red-border);
+    color: var(--error-red);
+        cursor: pointer;
           transition: all 0.2s ease;
           font-size: 0.85rem;
       }
@@ -601,11 +617,11 @@
               }
 
               .login-info-card {
-                  background: rgba(21, 25, 35, 0.7);
-                  backdrop-filter: blur(40px) saturate(180%);
-                  border: 1px solid rgba(255, 255, 255, 0.08);
-                  border-radius: 20px;
-                  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    background: var(--glass-bg);                  
+                backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--overlay-dark);                  
+                border-radius: 20px;
                   padding: 2.3rem;
                   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
               }
@@ -647,13 +663,12 @@
               }
 
               .login-container {
-                  background: rgba(21, 25, 35, 0.7);
-                  backdrop-filter: blur(40px) saturate(180%);
-                  border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--overlay-dark);                  backdrop-filter: blur(40px) saturate(180%);
                   border-radius: 20px;
                   padding: 3rem 2.5rem;
                   width: 380px;
-                  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
                   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                   z-index: 2;
               }
@@ -754,8 +769,8 @@
               #desktop {
                   position: fixed;
                   inset: 0;
-                  background: linear-gradient(135deg, #0a0e1a 0%, #151923 100%);
-                  display: none;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+                display: none;
                   opacity: 0;
                   transition: opacity 0.5s ease;
                   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -769,8 +784,7 @@
               .wallpaper {
                   position: absolute;
                   inset: 0;
-                  background: linear-gradient(135deg, #0a0e1a 0%, #151923 50%, #0a0e1a 100%);
-                  z-index: 0;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);                  z-index: 0;
                   display: flex;
                   flex-direction: column;
                   align-items: center;
@@ -1184,8 +1198,8 @@
               }
 
               .window-btn.close:hover {
-                  background: #ef4444;
-                  color: #fff;
+    background: var(--error-red);
+    color: var(--pure-white);
               }
 
               .window-content {
@@ -1269,8 +1283,8 @@
 
               .terminal {
                   height: 100%;
-                  background: rgba(0, 0, 0, 0.85);
-                  color: var(--accent);
+    background: var(--pure-black);
+                color: var(--accent);
                   font-family: 'Courier New', monospace;
                   padding: 1rem;
                   overflow-y: auto;
@@ -1312,8 +1326,8 @@
 
               .cli-terminal {
                   height: 100%;
-                  background: #000;
-                  color: var(--accent);
+    background: var(--pure-black);
+                color: var(--accent);
                   font-family: 'Courier New', monospace;
                   padding: 2rem;
                   overflow-y: auto;
@@ -1396,7 +1410,7 @@
                   width: 18px;
                   height: 18px;
                   border-radius: 50%;
-                  background: #fff;
+                  background: var(--pure-white);
                   top: 3px;
                   left: 3px;
                   transition: all 0.2s ease;
@@ -1654,10 +1668,9 @@
               }
 
               .help-code {
-                  background: #000000;
-                  padding: 0.15rem 0.5rem;
+ background: var(--pure-black);
+    color: var(--pure-white);                  padding: 0.15rem 0.5rem;
                   border-radius: 5px;
-                  color: #fff;
                   font-family: 'Courier New', monospace;
                   font-size: 0.9rem;
                   border: 1px solid var(--accent);
@@ -1741,8 +1754,7 @@
               }
 
               .toast-close:hover {
-                  background: rgba(255, 255, 255, 0.08);
-                  color: var(--text-primary);
+    background: var(--transparent-white-8);                  color: var(--text-primary);
               }
 
               .context-menu {
@@ -3195,8 +3207,7 @@
           flex: 1;
           position: relative;
           overflow: hidden;
-          background: #fff;
-          isolation: isolate;
+    background: var(--pure-white);          isolation: isolate;
           contain: layout style paint;
       }
 
@@ -3224,8 +3235,7 @@
           position: absolute;
           top: 0;
           left: 0;
-          background: #fff;
-          overflow: hidden;
+    background: var(--pure-white);          overflow: hidden;
           isolation: isolate;
           contain: strict;
       }
@@ -3244,12 +3254,11 @@
           bottom: 0 !important;
           width: 100% !important;
           height: 100% !important;
-          background: #fff !important;
           overflow: auto !important;
           padding: 0 !important;
           margin: 0 !important;
-          color: #000 !important;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background: var(--pure-white) !important;
+    color: var(--pure-black) !important;          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
           box-sizing: border-box !important;
           isolation: isolate !important;
           z-index: 1 !important;
@@ -3268,8 +3277,8 @@
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
           font-size: 16px !important;
           line-height: 1.5 !important;
-          color: #000 !important;
-          background: #fff !important;
+    color: var(--pure-black) !important;
+    background: var(--pure-white) !important;
           padding: 1rem !important;
           min-height: 100% !important;
           box-sizing: border-box !important;
@@ -3296,8 +3305,7 @@
       .browser-content-container h5,
       .browser-content-container h6 {
           margin: 1em 0 0.5em;
-          color: #000;
-      }
+    color: var(--pure-black);      }
 
       .browser-content-container p {
           margin: 0.5em 0;
@@ -3336,10 +3344,10 @@
       .start-signout-btn {
           height: 40px;
           padding: 0 0.875rem;
-          background: rgba(239, 68, 68, 0.15);
-          border: 1px solid rgba(239, 68, 68, 0.3);
+    background: var(--error-red-bg);
+    border: 1px solid var(--error-red-border);
+    color: var(--error-red);
           border-radius: 10px;
-          color: #ef4444;
           font-size: 0.85rem;
           font-weight: 600;
           cursor: pointer;
@@ -3361,8 +3369,7 @@
       }
       .browser-error-icon {
           font-size: 4rem;
-          color: #ef4444;
-          margin-bottom: 1.5rem;
+    color: var(--error-red);          margin-bottom: 1.5rem;
       }
 
       .browser-error-title {
@@ -3480,8 +3487,7 @@
 
       .calculator-btn.clear {
           background: rgba(239, 68, 68, 0.2);
-          color: #ef4444;
-      }
+    color: var(--error-red);      }
 
       .calculator-btn.clear:hover {
           background: rgba(239, 68, 68, 0.3);
@@ -3944,8 +3950,7 @@
           background: rgba(239, 68, 68, 0.9);
           border: none;
           border-radius: 6px;
-          color: #fff;
-          cursor: pointer;
+    color: var(--pure-white);          cursor: pointer;
           opacity: 0;
           transition: all 0.2s ease;
           display: flex;
@@ -3958,14 +3963,14 @@
       }
 
       .photo-delete-btn:hover {
-          background: #dc2626;
-          transform: scale(1.1);
+    background: var(--error-red-hover);
+        transform: scale(1.1);
       }
             .custom-modal {
           position: fixed;
           inset: 0;
-          background: rgba(0, 0, 0, 0.8);
-          backdrop-filter: blur(10px);
+    background: var(--overlay-dark);
+              backdrop-filter: blur(10px);
           z-index: 10005;
           display: none;
           align-items: center;
@@ -4020,8 +4025,7 @@
 
       .modal-icon.warning {
           background: rgba(239, 68, 68, 0.2);
-          color: #ef4444;
-      }
+    color: var(--error-red);      }
 
       .modal-icon.info {
           background: rgba(125, 211, 192, 0.2);
@@ -4094,9 +4098,9 @@
       }
 
       .modal-btn-danger {
-          background: rgba(239, 68, 68, 0.2);
-          border: 1px solid rgba(239, 68, 68, 0.3);
-          color: #ef4444;
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid var(--error-red-border);
+    color: var(--error-red);
       }
 
       .modal-btn-danger:hover {
@@ -7365,47 +7369,47 @@ function initDesktopIconDragging() {
       const fileChecksum2 = 'YnkgZGluZ3VzY2hhbg';
 
       function moveFileToFolder() {
-          const bottomTextElement = document.getElementById('bottom-text');
-          const bylineElement = document.querySelector('.wallpaper-byline');
+    const bottomTextElement = document.getElementById('bottom-text');
+    const bylineElement = document.querySelector('.wallpaper-byline');
 
-          let bottomContent = '';
-          let bylineContent = '';
+    let bottomContent = '';
+    let bylineContent = '';
 
-          if (bottomTextElement) {
-              bottomContent = bottomTextElement.innerHTML.trim();
-          }
+    if (bottomTextElement) {
+        bottomContent = bottomTextElement.innerHTML.trim();
+    }
 
-          if (bylineElement) {
-              bylineContent = bylineElement.textContent.trim();
-          }
+    if (bylineElement) {
+        bylineContent = bylineElement.textContent.trim();
+    }
 
-          const expectedBottom = atob(fileChecksum1);
-          const expectedByline = atob(fileChecksum2);
+    const expectedBottom = atob(fileChecksum1);
+    const expectedByline = atob(fileChecksum2);
 
-          const bottomValid = bottomContent === expectedBottom;
-          const bylineValid = bylineContent === expectedByline;
+    const bottomValid = bottomContent === expectedBottom;
+    const bylineValid = bylineContent === expectedByline;
 
-          if (!bottomValid || !bylineValid) {
-              window.openApp = window.closeWindow = window.minimizeWindow = window.showToast = window.handleTaskbarClick = function() {};
+    if (!bottomValid || !bylineValid) {
+        window.openApp = window.closeWindow = window.minimizeWindow = window.showToast = window.handleTaskbarClick = function() {};
 
-              const elements = document.querySelectorAll('div, body, html, :root');
-              elements.forEach(el => {
-                  el.style.transition = 'none';
-                  el.style.animation = 'none';
-                  el.style.backgroundColor = '#000';
-                  el.style.color = '#000';
-                  el.style.borderColor = '#000';
-                  el.style.boxShadow = 'none';
-                  el.style.backgroundImage = 'none';
-              });
+        const elements = document.querySelectorAll('div, body, html, :root');
+        elements.forEach(el => {
+            el.style.transition = 'none';
+            el.style.animation = 'none';
+            el.style.backgroundColor = 'var(--pure-black)';
+            el.style.color = 'var(--pure-black)';
+            el.style.borderColor = 'var(--pure-black)';
+            el.style.boxShadow = 'none';
+            el.style.backgroundImage = 'none';
+        });
 
-              document.body.innerHTML = '<div style="position:fixed;inset:0;background:#000;z-index:99999;"></div>';
+        document.body.innerHTML = '<div style="position:fixed;inset:0;background:var(--pure-black);z-index:99999;"></div>';
 
-              return false;
-          }
+        return false;
+    }
 
-          return true;
-      }
+    return true;
+}
 
       moveFileToFolder();
 
@@ -8637,52 +8641,52 @@ if (e.target.closest('.desktop-icon')) {
               </div>
           `;
       }
-      function viewPhoto(name) {
-          const photos = fileSystem['Photos'] || {};
-          const url = photos[name];
-          if (!url) return;
+function viewPhoto(name) {
+    const photos = fileSystem['Photos'] || {};
+    const url = photos[name];
+    if (!url) return;
 
-          const modal = document.createElement('div');
-          modal.style.cssText = `
-              position: fixed;
-              inset: 0;
-              background: rgba(0, 0, 0, 0.9);
-              z-index: 10004;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              animation: fadeIn 0.3s ease;
-          `;
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        inset: 0;
+        background: var(--overlay-darker);
+        z-index: 10004;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+    `;
 
-          modal.innerHTML = `
-              <img src="${url}" style="max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px;">
-              <button onclick="this.parentElement.remove()" style="
-                  position: absolute;
-                  top: 2rem;
-                  right: 2rem;
-                  width: 48px;
-                  height: 48px;
-                  background: rgba(239, 68, 68, 0.9);
-                  border: none;
-                  border-radius: 50%;
-                  color: #fff;
-                  font-size: 1.5rem;
-                  cursor: pointer;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  transition: all 0.2s ease;
-              " onmouseover="this.style.background='#dc2626'" onmouseout="this.style.background='rgba(239, 68, 68, 0.9)'">
-                  <i class="fas fa-times"></i>
-              </button>
-          `;
+    modal.innerHTML = `
+        <img src="${url}" style="max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px;">
+        <button onclick="this.parentElement.remove()" style="
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: rgba(239, 68, 68, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: var(--pure-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        " onmouseover="this.style.background='var(--error-red-hover)'" onmouseout="this.style.background='rgba(239, 68, 68, 0.9)'">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
 
-          modal.onclick = (e) => {
-              if (e.target === modal) modal.remove();
-          };
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.remove();
+    };
 
-          document.body.appendChild(modal);
-      }
+    document.body.appendChild(modal);
+}
 
       function deletePhoto(name) {
           const confirmed = confirm(`Delete ${name}?`);

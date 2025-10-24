@@ -32,7 +32,8 @@ basically... a whole little os in your browser :D
 
 - [ ] make wallpaper customizable  
 - [ ] actually make themes work
-- [ ] app store improvements  (rn can only install built in apps) 
+- [ ] app store improvements  (rn can only install built in apps)
+- [ ] FIX BROWSER it doesnt rly work as a proxy rn due to it being broken
 
 ---
 
