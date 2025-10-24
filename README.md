@@ -64,4 +64,4 @@ open the html file in your browser. that’s it.
 
 ## 🧩 credits
 
-made with ❤️ by dinguschan
+Developed by DingusChan and x8rr, with contributions from lanefiedler-731
