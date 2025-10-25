@@ -1,4 +1,4 @@
-## This is a active beta version of NautilusOS that is very experemental and may have new features before they get pused to the main branch.
+
 
 # NautilusOS
 
