@@ -1,4 +1,6 @@
-## NautilusOS
+## This is a active beta version of NautilusOS that is very experemental and may have new features before they get pused to the main branch.
+
+# NautilusOS
 
 NautilusOS is a web based operating system built entirely in html, css, and js and my biggest project yet!!  
 boot it up, log in, and mess around like it’s a real desktop with apps, an app store, windows, a file explorer, taskbar, and more.
