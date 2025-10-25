@@ -1,7 +1,7 @@
 ## NautilusOS
 
 NautilusOS is a web based operating system built entirely in html, css, and js and my biggest project yet!!  
-boot it up, log in, and mess around like it’s a real desktop — apps, windows, file explorer, taskbar, and more.
+boot it up, log in, and mess around like it’s a real desktop with apps, an app store, windows, a file explorer, taskbar, and more.
 
 ---
 
@@ -64,4 +64,4 @@ open the html file in your browser. that’s it.
 
 ## 🧩 credits
 
-Developed by DingusChan and x8rr, with contributions from lanefiedler-731
+Developed by dinguschan, x8rr, and lanefiedler-731
