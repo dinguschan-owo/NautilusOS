@@ -1382,9 +1382,11 @@ function login() {
   currentUsername = username;
   document.getElementById("displayUsername").textContent = username;
 
-  if (username.toLowerCase() === "dinguschan") {
+  if (username.toLowerCase() === "dinguschan" || username.toLowerCase() === "$xor" || username.toLowerCase() === "lanefiedler-731") {
     unlockEasterEgg("dev-mode");
   }
+
+  showToast("Welcome back, " + username + "!", "fa-circle-check");
 
   unlockAchievement("first-login");
 
@@ -2307,60 +2309,9 @@ function openApp(appName, editorContent = "", filename = "") {
       title: "Nautilus Browser",
       icon: "fas fa-globe",
       content: `
-              <div class="browser-container">
+              <div class="browser-container" style="overflow: hidden;">
                   <div class="browser-header">
-                      <div class="browser-tabs" id="browserTabs">
-                          <div class="browser-tab active" data-tab-id="0" onclick="if(!event.target.closest('.browser-tab-close')) switchBrowserTab(0)">
-                              <i class="fas fa-globe browser-tab-icon"></i>
-                              <span class="browser-tab-title">New Tab</span>
-                              <div class="browser-tab-close" onclick="event.stopPropagation(); event.preventDefault(); closeBrowserTab(0)">
-                                  <i class="fas fa-times"></i>
-                              </div>
-                          </div>
-                          <div class="browser-new-tab" onclick="createBrowserTab()">
-                              <i class="fas fa-plus"></i>
-                          </div>
-                      </div>
-                      <div class="browser-loading" id="browserLoading">
-                          <div class="browser-loading-bar"></div>
-                      </div>
-                      <div class="browser-controls">
-                          <button class="browser-nav-btn" id="browserBack" onclick="browserGoBack()" disabled>
-                              <i class="fas fa-arrow-left"></i>
-                          </button>
-                          <button class="browser-nav-btn" id="browserForward" onclick="browserGoForward()" disabled>
-                              <i class="fas fa-arrow-right"></i>
-                          </button>
-                          <button class="browser-nav-btn" onclick="browserReload()">
-                              <i class="fas fa-redo"></i>
-                          </button>
-                          <div class="browser-url-bar">
-                              <i class="fas fa-lock" id="browserLockIcon"></i>
-                              <input
-                                  type="text"
-                                  class="browser-url-input"
-                                  id="browserUrlInput"
-                                  placeholder="Search or enter website URL"
-                                  onkeypress="handleBrowserUrlInput(event)"
-                              >
-                          </div>
-                      </div>
-                  </div>
-                  <div class="browser-content" id="browserContent">
-                      <div class="browser-view active" data-view-id="0">
-                          <div class="browser-landing">
-                              <i class="fas fa-fish browser-landing-logo"></i>
-                              <div class="browser-landing-search">
-                                  <i class="fas fa-search"></i>
-                                  <input
-                                      type="text"
-                                      class="browser-landing-input"
-                                      placeholder="Search or enter website URL"
-                                      onkeypress="handleBrowserLandingInput(event)"
-                                  >
-                              </div>
-                          </div>
-                      </div>
+                      <iframe src="/uv.html" frameborder="0" style="width: 100%; height: 100vh; border-radius: 0px; margin: 0;"></iframe>
                   </div>
               </div>
           `,
@@ -2691,6 +2642,10 @@ alt="favicon">
                 <i class="fas fa-palette"></i>
                 <span>Appearance</span>
             </div>
+            <div class="settings-nav-item" onclick="switchSettingsTab('proxy', this)">
+                <i class="fas fa-globe"></i>
+                <span>Proxy</span>
+            </div>
             <div class="settings-nav-item" onclick="switchSettingsTab('system', this)">
                 <i class="fas fa-microchip"></i>
                 <span>System</span>
@@ -2876,7 +2831,22 @@ alt="favicon">
                     </div>
                 </div>
             </div>
-            
+
+            <div class="settings-tab-content" data-tab="proxy">
+                <h2><i class="fas fa-globe"></i>Proxy Settings</h2>
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-search"></i>
+                        <span>Search Engine</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <div class="settings-item">
+                            <p class="settings-description">Enter a search engine URL. The default search engine is Brave Search.</p>
+                            <input type="text" class="searchEngineI" onkeyup="localStorage.setItem('nOS_searchEngine', this.value); console.log('o')" placeholder="ex. https://google.com/search?q=">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="settings-tab-content" data-tab="system">
                 <h2><i class="fas fa-microchip"></i> System</h2>
                 <div class="settings-card">
@@ -2909,6 +2879,7 @@ alt="favicon">
                                 <div class="settings-item-desc">Your account username</div>
                             </div>
                             <div class="settings-item-value">${currentUsername}</div>
+                            <button class="settings-action-btn" onclick="changeUsername()" style="margin-left: 25px;"><i class='fa-solid fa-pencil'></i>Edit</button>
                         </div>
                         <div class="settings-item">
                             <div class="settings-item-text">
@@ -4130,15 +4101,16 @@ function updateLoginGreeting() {
   const hour = now.getHours();
   const greetingEl = document.getElementById("loginGreeting");
   let greeting = "Welcome Back";
+  const username = localStorage.getItem("nautilusOS_username") || "User";
 
   if (hour >= 5 && hour < 12) {
-    greeting = "Good Morning";
+    greeting = `Good Morning, ${username}`;
   } else if (hour >= 12 && hour < 17) {
-    greeting = "Good Afternoon";
+    greeting = `Good Afternoon, ${username}`;
   } else if (hour >= 17 && hour < 22) {
-    greeting = "Good Evening";
+    greeting = `Good Evening, ${username}`;
   } else {
-    greeting = "Good Night";
+    greeting = `Good Night, ${username}`;
   }
 
   if (greetingEl) {
@@ -5290,6 +5262,14 @@ function handleBrowserLandingInput(event) {
   }
 }
 
+async function transport() {
+  if (!await connection.getTransport()) {
+    connection.setTransport("/libcurl/index.mjs", [{ websocket: wispUrl }])
+  }
+}
+
+transport()
+
 function navigateBrowser(input) {
   if (!input.trim()) return;
 
@@ -5316,7 +5296,9 @@ function navigateBrowser(input) {
   currentTab.historyIndex++;
   currentTab.url = url;
 
-  loadBrowserPage(url);
+  const finalUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
+
+  loadBrowserPage(finalUrl);
 }
 
 async function loadBrowserPage(url) {
@@ -5392,6 +5374,37 @@ async function loadBrowserPage(url) {
       navigateBrowser(targetUrl);
     };
     updateBrowserNavButtons();
+
+    setTimeout(() => {
+      iframe.src = url
+      iframe.onload = () => {
+        try {
+          const iframeDoc =
+            iframe.contentDocument || iframe.contentWindow.document;
+          const title = iframeDoc.title || new URL(url).hostname;
+          currentTab.title = title;
+
+          const tabEl = document.querySelector(
+            `.browser-tab[data-tab-id="${activeBrowserTab}"]`
+          );
+          if (tabEl) {
+            const titleEl = tabEl.querySelector(".browser-tab-title");
+            if (titleEl) titleEl.textContent = title;
+          }
+        } catch (err) {
+          const title = new URL(url).hostname;
+          currentTab.title = title;
+
+          const tabEl = document.querySelector(
+            `.browser-tab[data-tab-id="${activeBrowserTab}"]`
+          );
+          if (tabEl) {
+            const titleEl = tabEl.querySelector(".browser-tab-title");
+            if (titleEl) titleEl.textContent = title;
+          }
+        }
+      }
+    }, 500);
   } catch (error) {
     console.error("Browser error:", error);
     viewEl.innerHTML = `
@@ -6248,6 +6261,25 @@ async function resetAllData() {
     location.reload();
   }, 2000);
 }
+
+async function changeUsername() {
+  const newUsername = await prompt("Enter a new username:")
+  if (!newUsername) {
+    showToast("Username change cancelled", "fa-info-circle");
+  } else if (newUsername.length < 3) {
+    showToast("Username must be at least 3 characters", "fa-exclamation-circle");
+  } else if (newUsername === currentUsername) {
+    showToast("New username cannot be the same as the current one", "fa-info-circle")
+  }
+
+  showToast("Username changed successfully. Reloading...", "fa-check-circle");
+  localStorage.setItem("nautilusOS_username", newUsername);
+
+  setTimeout(() => {
+    location.reload()
+  }, 2000)
+}
+
 let modalResolve = null;
 
 function showModal(options) {
