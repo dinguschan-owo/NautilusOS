@@ -3401,10 +3401,279 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
           font-size: 0.95rem;
       }
 
-      .browser-error-btn:hover {
-          background: rgba(125, 211, 192, 0.25);
-          transform: translateY(-2px);
-      }
+.browser-error-btn:hover {
+    background: rgba(125, 211, 192, 0.25);
+    transform: translateY(-2px);
+}
+
+.achievements-content {
+    padding: 1.5rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.achievements-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.achievements-header h2 {
+    color: var(--accent);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.achievements-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.achievements-stat {
+    text-align: center;
+}
+
+.achievements-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.achievements-stat-label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.achievements-section {
+    margin-bottom: 2rem;
+}
+
+.achievements-section h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.achievement-card {
+    background: rgba(30, 35, 48, 0.6);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-card.unlocked {
+    border-color: var(--accent);
+    background: rgba(125, 211, 192, 0.1);
+}
+
+.achievement-card.locked {
+    opacity: 0.6;
+}
+
+.achievement-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(125, 211, 192, 0.2);
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.achievement-card.unlocked .achievement-icon {
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: var(--bg-primary);
+    box-shadow: 0 4px 12px rgba(125, 211, 192, 0.4);
+}
+
+.achievement-card.locked .achievement-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+}
+
+.achievement-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--bg-primary);
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(125, 211, 192, 0.6);
+}
+
+.achievement-name {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-card.locked .achievement-name {
+    color: var(--text-secondary);
+}
+
+.achievement-description {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+
+.achievement-progress {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 0.75rem;
+}
+
+.achievement-progress-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.achievement-date {
+    text-align: center;
+    color: var(--accent);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.achievement-card.locked .achievement-date {
+    color: var(--text-secondary);
+}
+
+.easter-egg-card {
+    background: rgba(30, 35, 48, 0.6);
+    border: 2px solid rgba(138, 43, 226, 0.5);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.easter-egg-card.unlocked {
+    border-color: #8a2be2;
+    background: rgba(138, 43, 226, 0.1);
+}
+
+.easter-egg-card.locked {
+    opacity: 0.6;
+}
+
+.easter-egg-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
+}
+
+.easter-egg-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+}
+
+.easter-egg-card.unlocked .easter-egg-icon {
+    background: linear-gradient(135deg, #8a2be2, #9b30ff);
+    color: var(--pure-white);
+    box-shadow: 0 4px 12px rgba(138, 43, 226, 0.4);
+}
+
+.easter-egg-card.locked .easter-egg-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+}
+
+.illustration-achievements {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration-achievement-badge {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--bg-primary);
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+}
+
+.illustration-achievement-badge::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration-achievement-badge:nth-child(2) {
+    animation-delay: 0.3s;
+    background: linear-gradient(135deg, #8a2be2, #9b30ff);
+}
+
+.illustration-achievement-badge:nth-child(3) {
+    animation-delay: 0.6s;
+    opacity: 0.5;
+    background: rgba(255, 255, 255, 0.2);
+}
 
             .calculator {
           display: flex;
@@ -3417,7 +3686,7 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
 
       .calculator-display {
           background: rgba(0, 0, 0, 0.5);
-          border: 1px solid var(--border);
+          border: 1px solid var(--border); 
           border-radius: 12px;
           padding: 1rem 1.5rem 0.8rem 1.5rem;
           text-align: right;
@@ -4652,8 +4921,11 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
         >
           <i class="fas fa-calculator"></i> <span>Calculator</span>
         </div>
-        <div class="desktop-icon" ondblclick="openApp('cloaking')" data-app="cloaking">
+<div class="desktop-icon" ondblclick="openApp('cloaking')" data-app="cloaking">
     <i class="fas fa-mask"></i> <span>Cloaking</span>
+</div>
+<div class="desktop-icon" ondblclick="openApp('achievements')" data-app="achievements">
+    <i class="fas fa-trophy"></i> <span>Achievements</span>
 </div>
         <div
           class="desktop-icon"
@@ -4700,8 +4972,11 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
         >
           <i class="fas fa-cog"></i>
         </div>
-        <div class="taskbar-icon" onclick="openApp('cloaking')" title="Cloaking" data-app="cloaking">
+<div class="taskbar-icon" onclick="openApp('cloaking')" title="Cloaking" data-app="cloaking">
     <i class="fas fa-mask"></i>
+</div>
+<div class="taskbar-icon" onclick="openApp('achievements')" title="Achievements" data-app="achievements">
+    <i class="fas fa-trophy"></i>
 </div>
         <div class="taskbar-divider"></div>
         <div class="system-tray">
@@ -4781,8 +5056,11 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
           <div class="app-item" onclick="openApp('calculator')">
             <i class="fas fa-calculator"></i> <span>Calculator</span>
           </div>
-          <div class="app-item" onclick="openApp('cloaking')">
+<div class="app-item" onclick="openApp('cloaking')">
     <i class="fas fa-mask"></i> <span>Cloaking</span>
+</div>
+<div class="app-item" onclick="openApp('achievements')">
+    <i class="fas fa-trophy"></i> <span>Achievements</span>
 </div>
         </div>
       </div>
@@ -4950,7 +5228,6 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
               closeToast(toast.querySelector('.toast-close'));
           }, 4000);
 
-          // Add to notification center
           addNotificationToHistory(message, icon);
       }
               function closeToast(btn) {
@@ -4981,12 +5258,57 @@ const appMetadata = {
     'calculator': { name: 'Calculator', icon: 'fa-calculator', preinstalled: true },
     'browser': { name: 'Nautilus Browser', icon: 'fa-globe', preinstalled: true },
     'cloaking': { name: 'Cloaking', icon: 'fa-mask', preinstalled: true },
+  'achievements': { name: 'Achievements', icon: 'fa-trophy', preinstalled: true },
     'startup-apps': { name: 'Startup Apps', icon: 'fa-rocket', preinstalled: false },
     'task-manager': { name: 'Task Manager', icon: 'fa-tasks', preinstalled: false }
 };
-              function updateUptime() {
-                  const elapsed = Math.floor((Date.now() - loginStartTime) / 1000 / 60);
-                  const uptimeEl = document.getElementById('uptime');
+function updateUptime() {
+    const elapsed = Math.floor((Date.now() - loginStartTime) / 1000 / 60);
+    const uptimeEl = document.getElementById('uptime');
+    
+    if (achievementsData) {
+        const now = Date.now();
+        const elapsedMinutes = (now - achievementsData.lastUptimeUpdate) / 1000 / 60;
+        achievementsData.totalUptime += elapsedMinutes;
+        achievementsData.lastUptimeUpdate = now;
+        
+        const uptime1h = achievementsData.achievements['uptime-1h'];
+        if (uptime1h) {
+            uptime1h.progress = Math.min(achievementsData.totalUptime, uptime1h.target);
+            if (achievementsData.totalUptime >= uptime1h.target && !uptime1h.unlocked) {
+                unlockAchievement('uptime-1h');
+            }
+        }
+        
+const uptime5h = achievementsData.achievements['uptime-5h'];
+if (uptime5h) {
+    uptime5h.progress = Math.min(achievementsData.totalUptime, uptime5h.target);
+    if (achievementsData.totalUptime >= uptime5h.target && !uptime5h.unlocked) {
+        unlockAchievement('uptime-5h');
+    }
+}
+
+const uptime10h = achievementsData.achievements['uptime-10h'];
+if (uptime10h) {
+    uptime10h.progress = Math.min(achievementsData.totalUptime, uptime10h.target);
+    if (achievementsData.totalUptime >= uptime10h.target && !uptime10h.unlocked) {
+        unlockAchievement('uptime-10h');
+    }
+}
+
+const uptime24h = achievementsData.achievements['uptime-24h'];
+if (uptime24h) {
+    uptime24h.progress = Math.min(achievementsData.totalUptime, uptime24h.target);
+    if (achievementsData.totalUptime >= uptime24h.target && !uptime24h.unlocked) {
+        unlockAchievement('uptime-24h');
+    }
+}
+
+saveAchievements();
+
+if (windows['achievements']) {
+    refreshAchievementsWindow();
+}    }
 
                   let uptimeString = '';
                   if (elapsed < 60) {
@@ -5134,11 +5456,9 @@ const appMetadata = {
                       if (cliInput) cliInput.focus();
                   }, 500);
               } else {
-                  // Check if setup is complete
                   const setupComplete = localStorage.getItem('nautilusOS_setupComplete');
 
                   if (!setupComplete) {
-                      // First time setup
                       setTimeout(() => {
                           const setup = document.getElementById('setup');
                           setup.style.display = 'flex';
@@ -5363,8 +5683,16 @@ function login() {
         }
     }
 
-    currentUsername = username;
-    document.getElementById('displayUsername').textContent = username;
+currentUsername = username;
+document.getElementById('displayUsername').textContent = username;
+
+if (username.toLowerCase() === 'dinguschan') {
+    unlockEasterEgg('dev-mode');
+}
+
+unlockAchievement('first-login');
+
+checkNightOwl();
 
     const login = document.getElementById('login');
     const desktop = document.getElementById('desktop');
@@ -5568,7 +5896,6 @@ function initDesktopIconDragging() {
             offsetX = e.clientX - rect.left;
             offsetY = e.clientY - rect.top;
 
-            // Use a timeout to distinguish between click and drag
             dragTimeout = setTimeout(() => {
                 if (!hasMoved) return;
                 
@@ -5713,8 +6040,33 @@ function initDesktopIconDragging() {
                       }
                   });
 
-                  updateTaskbarIndicators();
-                  return windowEl;
+const windowCount = Object.keys(windows).length;
+if (windowCount >= 5) {
+    unlockAchievement('multitasker');
+}
+
+const speedDemon = achievementsData.easterEggs['speed-demon'];
+if (speedDemon && !speedDemon.unlocked && speedDemon.trackingData) {
+    const now = Date.now();
+    if (!speedDemon.trackingData.windowOpenTimes) {
+        speedDemon.trackingData.windowOpenTimes = [];
+    }
+    
+    speedDemon.trackingData.windowOpenTimes.push(now);
+    
+    speedDemon.trackingData.windowOpenTimes = speedDemon.trackingData.windowOpenTimes.filter(
+        time => (now - time) <= speedDemon.trackingData.timeWindow
+    );
+    
+    if (speedDemon.trackingData.windowOpenTimes.length >= speedDemon.trackingData.threshold) {
+        unlockEasterEgg('speed-demon');
+    }
+    
+    saveAchievements();
+}
+
+updateTaskbarIndicators();
+return windowEl;
               }
 
               function focusWindow(windowEl) {
@@ -6020,8 +6372,16 @@ function initDesktopIconDragging() {
 
                   current[filename] = textarea.value;
                   filenameInput.value = filename;
-                  showToast('File saved: ' + filename, 'fa-check-circle');
+showToast('File saved: ' + filename, 'fa-check-circle');
 
+const fileCreator = achievementsData.achievements['file-creator'];
+if (!fileCreator.unlocked) {
+    fileCreator.progress = (fileCreator.progress || 0) + 1;
+    if (fileCreator.progress >= fileCreator.target) {
+        unlockAchievement('file-creator');
+    }
+    saveAchievements();
+}
                   if (windows['files']) {
                       updateFileExplorer();
                   }
@@ -6404,9 +6764,9 @@ function initDesktopIconDragging() {
                       <div class="settings-btn" onclick="resetAllData()" style="background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.3); color: #ef4444;">
                           <i class="fas fa-trash-alt"></i> Reset All Data
                       </div>
-                      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; padding: 0 1rem;">
-                          This will permanently delete all your data including your account, settings, files, themes, and preferences. You will be returned to the initial setup screen.
-                      </p>
+<p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; padding: 0 1rem;">
+    This will permanently delete all your data including your account, settings, files, themes, and preferences. <strong>NOTE: Your achievements and Easter eggs will be preserved!</strong> You will be returned to the initial setup screen.
+</p>
                   </div>
               </div>
           `,
@@ -6563,7 +6923,8 @@ function initDesktopIconDragging() {
                           <li><strong>Calculator</strong> - Perform calculations with basic operations, decimals, and percentages</li>
                           <li><strong>Settings</strong> - Customize clock format, desktop icons, themes, and boot options</li>
                           <li><strong>App Store</strong> - Browse and install themes and future apps</li>
-                          <li><strong>Help</strong> - Access this comprehensive guide to NautilusOS features</li>
+<li><strong>Help</strong> - Access this comprehensive guide to NautilusOS features</li>
+<li><strong>Achievements</strong> - Track your progress with 12 achievements and 4 hidden Easter eggs to discover</li>
                       </ul>
                   </div>
 
@@ -6888,7 +7249,28 @@ function initDesktopIconDragging() {
               <p>Never miss important system messages! View all your notifications in one place, track their history, and clear them when you're done. Stay informed about everything happening in NautilusOS.</p>
           </div>
       </div>
-                      <div class="carousel-controls">
+
+<div class="carousel-slide" data-slide="13">
+    <div class="carousel-illustration">
+        <div class="illustration-achievements">
+            <div class="illustration-achievement-badge">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div class="illustration-achievement-badge">
+                <i class="fas fa-egg"></i>
+            </div>
+            <div class="illustration-achievement-badge">
+                <i class="fas fa-lock"></i>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-content">
+        <h2>Achievements & Easter Eggs</h2>
+        <p>Track your progress with a comprehensive achievement system! Unlock badges for reaching milestones, exploring features, and discovering hidden Easter eggs. Achievement data persists even after system resets!</p>
+    </div>
+</div>
+
+<div class="carousel-controls">
                           <div class="carousel-btn" onclick="changeSlide(-1)">
                               <i class="fas fa-chevron-left"></i>
                           </div>
@@ -6911,6 +7293,8 @@ function initDesktopIconDragging() {
           <div class="carousel-dot" onclick="goToSlide(10)"></div>
           <div class="carousel-dot" onclick="goToSlide(11)"></div>
           <div class="carousel-dot" onclick="goToSlide(12)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(13)"></div>
+
       </div>
                           </div>
 
@@ -7029,8 +7413,14 @@ function initDesktopIconDragging() {
       }
                   };
 
-                  if (apps[appName]) {
-                      const app = apps[appName];
+if (appName === 'achievements') {
+    openAchievements();
+    return;
+}
+
+if (apps[appName]) {
+    const app = apps[appName];
+    trackAppOpened(appName);
                       createWindow(
                           app.title,
                           app.icon,
@@ -7167,8 +7557,9 @@ function initDesktopIconDragging() {
               return;
           }
 
-          settings[setting] = !settings[setting];
-          saveSettingsToLocalStorage(); // Add this line
+settings[setting] = !settings[setting];
+saveSettingsToLocalStorage();
+trackSettingChanged(setting);
 
           if (setting === 'showDesktopIcons') {
               const icons = document.getElementById('desktopIcons');
@@ -7485,7 +7876,6 @@ function initDesktopIconDragging() {
                   menu.style.top = y + 'px';
                   menu.classList.add('active');
 
-                  // Adjust if menu goes off screen
                   setTimeout(() => {
                       const rect = menu.getBoundingClientRect();
                       if (rect.right > window.innerWidth) {
@@ -7953,7 +8343,8 @@ if (e.target.closest('.desktop-icon')) {
 
           installedThemes.push(themeName);
           localStorage.setItem('nautilusOS_installedThemes', JSON.stringify(installedThemes)); 
-          showToast('Theme installed! Go to Settings to apply it.', 'fa-check-circle');
+showToast('Theme installed! Go to Settings to apply it.', 'fa-check-circle');
+unlockAchievement('theme-changer');
 
           refreshAppStore();
       }
@@ -8771,8 +9162,8 @@ function viewPhoto(name) {
                   }
                   fileSystem['Photos'][filename] = url;
 
-                  showToast(`Screenshot saved: ${filename}`, 'fa-check-circle');
-
+showToast(`Screenshot saved: ${filename}`, 'fa-check-circle');
+unlockAchievement('screenshot');
                   if (!windows['photos']) {
                       openApp('photos');
                   } else {
@@ -9047,10 +9438,12 @@ function setupStep4Back() {
               }
           }
       }
-      window.addEventListener('DOMContentLoaded', () => {
-          loadSettingsFromLocalStorage();
-          loadInstalledThemes();
-          loadInstalledApps();
+window.addEventListener('DOMContentLoaded', () => {
+    loadSettingsFromLocalStorage();
+    loadInstalledThemes();
+    loadInstalledApps();
+    loadAchievements();
+    achievementsData.lastUptimeUpdate = Date.now();
 
           if (!settings.showDesktopIcons) {
               const icons = document.getElementById('desktopIcons');
@@ -9124,12 +9517,18 @@ function setupStep4Back() {
           if (!confirmed) return;
 
           const finalConfirm = await prompt('Type "DELETE" (all caps) to confirm:');
-          if (finalConfirm !== 'DELETE') {
-              showToast('Reset cancelled', 'fa-info-circle');
-              return;
-          }
+if (finalConfirm !== 'DELETE') {
+    showToast('Reset cancelled', 'fa-info-circle');
+    return;
+}
 
-          localStorage.clear();
+const achievements = localStorage.getItem('nautilusOS_achievements');
+
+localStorage.clear();
+
+if (achievements) {
+    localStorage.setItem('nautilusOS_achievements', achievements);
+}
 
           showToast('All data has been erased. Reloading...', 'fa-trash-alt');
 
@@ -9839,6 +10238,482 @@ let cloakingConfig = {
 };
 let rotationInterval = null;
 const originalTitle = document.title;
+
+// Achievements System
+let achievementsData = {
+    achievements: {
+        'first-login': {
+            id: 'first-login',
+            name: 'Welcome Aboard!',
+            description: 'Successfully log in to NautilusOS for the first time',
+            icon: 'fa-fish',
+            unlocked: false,
+            unlockedDate: null
+        },
+        'uptime-1h': {
+            id: 'uptime-1h',
+            name: 'Time Traveler',
+            description: 'Keep NautilusOS running for 1 hour of total uptime',
+            icon: 'fa-clock',
+            unlocked: false,
+            unlockedDate: null,
+            progress: 0,
+            target: 60
+        },
+'uptime-5h': {
+    id: 'uptime-5h',
+    name: 'Marathon Runner',
+    description: 'Achieve 5 hours of total uptime across all sessions',
+    icon: 'fa-running',
+    unlocked: false,
+    unlockedDate: null,
+    progress: 0,
+    target: 300
+},
+'uptime-10h': {
+    id: 'uptime-10h',
+    name: 'Dedication',
+    description: 'Reach an impressive 10 hours of total uptime',
+    icon: 'fa-medal',
+    unlocked: false,
+    unlockedDate: null,
+    progress: 0,
+    target: 600
+},
+'uptime-24h': {
+    id: 'uptime-24h',
+    name: 'Legendary',
+    description: 'Achieve the ultimate milestone: 24 hours of total uptime!',
+    icon: 'fa-crown',
+    unlocked: false,
+    unlockedDate: null,
+    progress: 0,
+    target: 1440
+},
+'all-apps': {
+            id: 'all-apps',
+            name: 'Explorer',
+            description: 'Open all preinstalled applications at least once',
+            icon: 'fa-compass',
+            unlocked: false,
+            unlockedDate: null,
+            progress: 0,
+            target: 12
+        },
+        'stealth-mode': {
+            id: 'stealth-mode',
+            name: 'Stealth Mode',
+            description: 'Apply any cloaking setting to disguise your tab',
+            icon: 'fa-user-secret',
+            unlocked: false,
+            unlockedDate: null
+        },
+        'screenshot': {
+            id: 'screenshot',
+            name: 'Shutterbug',
+            description: 'Take your first screenshot',
+            icon: 'fa-camera',
+            unlocked: false,
+            unlockedDate: null
+        },
+        'theme-changer': {
+            id: 'theme-changer',
+            name: 'Style Master',
+            description: 'Install a theme from the App Store',
+            icon: 'fa-palette',
+            unlocked: false,
+            unlockedDate: null
+        },
+        'file-creator': {
+            id: 'file-creator',
+            name: 'Content Creator',
+            description: 'Create and save 5 text files',
+            icon: 'fa-file-alt',
+            unlocked: false,
+            unlockedDate: null,
+            progress: 0,
+            target: 5
+        },
+        'multitasker': {
+            id: 'multitasker',
+            name: 'Multitasker',
+            description: 'Have 5 windows open simultaneously',
+            icon: 'fa-layer-group',
+            unlocked: false,
+            unlockedDate: null
+        },
+        'customizer': {
+            id: 'customizer',
+            name: 'Customizer',
+            description: 'Change at least 3 different settings',
+            icon: 'fa-sliders-h',
+            unlocked: false,
+            unlockedDate: null,
+            progress: 0,
+            target: 3
+        }
+    },
+    easterEggs: {
+    'dev-mode': {
+        id: 'dev-mode',
+        name: 'The Creator',
+        lockedName: '???',
+        description: 'Welcome, developer! You found the secret dev account.',
+        icon: 'fa-code',
+        unlocked: false,
+        unlockedDate: null,
+        hint: 'Try logging in with a special username...'
+    },
+    'konami-code': {
+        id: 'konami-code',
+        name: 'Old School Gamer',
+        lockedName: '???',
+        description: 'You entered the legendary Konami Code like a true gamer!',
+        icon: 'fa-gamepad',
+        unlocked: false,
+        unlockedDate: null,
+        hint: 'Up, Up, Down, Down, Left, Right, Left, Right, B, A'
+    },
+    'night-owl': {
+        id: 'night-owl',
+        name: 'Midnight Sailor',
+        lockedName: '???',
+        description: 'You used NautilusOS during the witching hours (12-3 AM)',
+        icon: 'fa-moon',
+        unlocked: false,
+        unlockedDate: null,
+        hint: 'Login during the witching hours (midnight to 3 AM)...'
+    },
+    'speed-demon': {
+        id: 'speed-demon',
+        name: 'Speed Demon',
+        lockedName: '???',
+        description: 'You opened 10 windows in under 30 seconds!',
+        icon: 'fa-bolt',
+        unlocked: false,
+        unlockedDate: null,
+        hint: 'Open many windows very quickly...',
+        trackingData: {
+            windowOpenTimes: [],
+            threshold: 10,
+            timeWindow: 30000
+        }
+    }
+},
+    openedApps: new Set(),
+    settingsChanged: new Set(),
+    totalUptime: 0,
+    lastUptimeUpdate: Date.now()
+};
+
+function loadAchievements() {
+    const saved = localStorage.getItem('nautilusOS_achievements');
+    if (saved) {
+        try {
+            const parsed = JSON.parse(saved);
+            achievementsData.achievements = { ...achievementsData.achievements, ...parsed.achievements };
+            achievementsData.easterEggs = { ...achievementsData.easterEggs, ...parsed.easterEggs };
+            achievementsData.openedApps = new Set(parsed.openedApps || []);
+            achievementsData.settingsChanged = new Set(parsed.settingsChanged || []);
+            achievementsData.totalUptime = parsed.totalUptime || 0;
+        } catch (e) {
+            console.error('Failed to load achievements:', e);
+        }
+    }
+}
+
+function saveAchievements() {
+    const toSave = {
+        achievements: achievementsData.achievements,
+        easterEggs: achievementsData.easterEggs,
+        openedApps: Array.from(achievementsData.openedApps),
+        settingsChanged: Array.from(achievementsData.settingsChanged),
+        totalUptime: achievementsData.totalUptime
+    };
+    localStorage.setItem('nautilusOS_achievements', JSON.stringify(toSave));
+}
+
+function unlockAchievement(achievementId) {
+    const achievement = achievementsData.achievements[achievementId];
+    if (!achievement || achievement.unlocked) return;
+    
+    achievement.unlocked = true;
+    achievement.unlockedDate = new Date().toISOString();
+    saveAchievements();
+    
+    showToast(`Achievement Unlocked: ${achievement.name}!`, 'fa-trophy');
+    
+    if (windows['achievements']) {
+        refreshAchievementsWindow();
+    }
+}
+
+function unlockEasterEgg(eggId) {
+    const egg = achievementsData.easterEggs[eggId];
+    if (!egg || egg.unlocked) return;
+    
+    egg.unlocked = true;
+    egg.unlockedDate = new Date().toISOString();
+    saveAchievements();
+    
+    showToast(`Easter Egg Found: ${egg.name}!`, 'fa-egg');
+    
+    if (windows['achievements']) {
+        refreshAchievementsWindow();
+    }
+}
+function refreshAchievementsWindow() {
+    if (!windows['achievements']) return;
+    
+    const content = windows['achievements'].querySelector('.window-content');
+    if (!content) return;
+    
+    const unlockedCount = Object.values(achievementsData.achievements).filter(a => a.unlocked).length;
+    const totalCount = Object.keys(achievementsData.achievements).length;
+    const easterEggsCount = Object.values(achievementsData.easterEggs).filter(e => e.unlocked).length;
+    const totalEggs = Object.keys(achievementsData.easterEggs).length;
+    
+    const achievementsHtml = Object.values(achievementsData.achievements).map(achievement => {
+        const hasProgress = achievement.target !== undefined;
+        const progressPercent = hasProgress ? (achievement.progress / achievement.target * 100).toFixed(0) : 0;
+        const progressText = hasProgress ? `${achievement.progress}/${achievement.target}` : '';
+        
+        return `
+            <div class="achievement-card ${achievement.unlocked ? 'unlocked' : 'locked'}">
+                <div class="achievement-icon">
+                    <i class="fas ${achievement.icon}"></i>
+                    ${achievement.unlocked ? '<div class="achievement-badge">✓</div>' : ''}
+                </div>
+                <div class="achievement-name">${achievement.unlocked ? achievement.name : '???'}</div>
+                <div class="achievement-description">${achievement.unlocked ? achievement.description : 'Locked - Keep exploring to unlock!'}</div>
+                ${hasProgress && !achievement.unlocked ? `
+                    <div class="achievement-progress">
+                        <div class="achievement-progress-bar" style="width: ${progressPercent}%"></div>
+                    </div>
+                    <div class="achievement-date">${progressText}</div>
+                ` : ''}
+                ${achievement.unlocked ? `<div class="achievement-date">Unlocked: ${new Date(achievement.unlockedDate).toLocaleDateString()}</div>` : ''}
+            </div>
+        `;
+    }).join('');
+    
+const easterEggsHtml = Object.values(achievementsData.easterEggs).map(egg => {
+    const displayName = egg.unlocked ? egg.name : (egg.lockedName || '???');
+    const displayDesc = egg.unlocked ? egg.description : egg.hint;
+    
+    return `
+        <div class="easter-egg-card ${egg.unlocked ? 'unlocked' : 'locked'}">
+            <div class="easter-egg-icon">
+                <i class="fas ${egg.icon}"></i>
+            </div>
+            <div class="achievement-name">${displayName}</div>
+            <div class="achievement-description">${egg.unlocked ? displayDesc : `<i class="fas fa-lightbulb" style="margin-right: 0.5rem; color: var(--accent);"></i>${displayDesc}`}</div>
+            ${egg.unlocked ? `<div class="achievement-date">Found: ${new Date(egg.unlockedDate).toLocaleDateString()}</div>` : ''}
+        </div>
+    `;
+}).join('');
+    
+    content.innerHTML = `
+        <div class="achievements-content">
+            <div class="achievements-header">
+                <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                <div class="achievements-stats">
+                    <div class="achievements-stat">
+                        <div class="achievements-stat-value">${unlockedCount}/${totalCount}</div>
+                        <div class="achievements-stat-label">Achievements</div>
+                    </div>
+                    <div class="achievements-stat">
+                        <div class="achievements-stat-value">${easterEggsCount}/${totalEggs}</div>
+                        <div class="achievements-stat-label">Easter Eggs</div>
+                    </div>
+                    <div class="achievements-stat">
+                        <div class="achievements-stat-value">${Math.floor(achievementsData.totalUptime)}m</div>
+                        <div class="achievements-stat-label">Total Uptime</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievements-section">
+                <h3><i class="fas fa-medal"></i> Your Achievements</h3>
+                <div class="achievements-grid">
+                    ${achievementsHtml}
+                </div>
+            </div>
+            
+            <div class="achievements-section">
+                <h3><i class="fas fa-egg"></i> Easter Eggs</h3>
+                <div class="achievements-grid">
+                    ${easterEggsHtml}
+                </div>
+            </div>
+        </div>
+    `;
+}
+function trackAppOpened(appName) {
+    const preinstalledApps = ['files', 'terminal', 'browser', 'settings', 'editor', 'music', 'photos', 'help', 'whatsnew', 'appstore', 'calculator', 'cloaking'];
+    
+    if (preinstalledApps.includes(appName)) {
+        achievementsData.openedApps.add(appName);
+        
+        const achievement = achievementsData.achievements['all-apps'];
+        achievement.progress = achievementsData.openedApps.size;
+        
+        if (achievementsData.openedApps.size >= achievement.target) {
+            unlockAchievement('all-apps');
+        }
+        
+        saveAchievements();
+    }
+}
+
+function trackSettingChanged(settingName) {
+    achievementsData.settingsChanged.add(settingName);
+    
+    const achievement = achievementsData.achievements['customizer'];
+    achievement.progress = achievementsData.settingsChanged.size;
+    
+    if (achievementsData.settingsChanged.size >= achievement.target) {
+        unlockAchievement('customizer');
+    }
+    
+    saveAchievements();
+}
+
+function updateUptime() {
+    const now = Date.now();
+    const elapsed = (now - achievementsData.lastUptimeUpdate) / 1000 / 60; 
+    achievementsData.totalUptime += elapsed;
+    achievementsData.lastUptimeUpdate = now;
+    
+    const uptime1h = achievementsData.achievements['uptime-1h'];
+    uptime1h.progress = Math.min(achievementsData.totalUptime, uptime1h.target);
+    if (achievementsData.totalUptime >= uptime1h.target) {
+        unlockAchievement('uptime-1h');
+    }
+    
+    const uptime5h = achievementsData.achievements['uptime-5h'];
+    uptime5h.progress = Math.min(achievementsData.totalUptime, uptime5h.target);
+    if (achievementsData.totalUptime >= uptime5h.target) {
+        unlockAchievement('uptime-5h');
+    }
+    
+    saveAchievements();
+}
+
+function openAchievements() {
+    const unlockedCount = Object.values(achievementsData.achievements).filter(a => a.unlocked).length;
+    const totalCount = Object.keys(achievementsData.achievements).length;
+    const easterEggsCount = Object.values(achievementsData.easterEggs).filter(e => e.unlocked).length;
+    const totalEggs = Object.keys(achievementsData.easterEggs).length;
+    
+    const achievementsHtml = Object.values(achievementsData.achievements).map(achievement => {
+        const hasProgress = achievement.target !== undefined;
+        const progressPercent = hasProgress ? (achievement.progress / achievement.target * 100).toFixed(0) : 0;
+        const progressText = hasProgress ? `${achievement.progress}/${achievement.target}` : '';
+        
+        return `
+            <div class="achievement-card ${achievement.unlocked ? 'unlocked' : 'locked'}">
+                <div class="achievement-icon">
+                    <i class="fas ${achievement.icon}"></i>
+                    ${achievement.unlocked ? '<div class="achievement-badge">✓</div>' : ''}
+                </div>
+                <div class="achievement-name">${achievement.unlocked ? achievement.name : '???'}</div>
+                <div class="achievement-description">${achievement.unlocked ? achievement.description : 'Locked - Keep exploring to unlock!'}</div>
+                ${hasProgress && !achievement.unlocked ? `
+                    <div class="achievement-progress">
+                        <div class="achievement-progress-bar" style="width: ${progressPercent}%"></div>
+                    </div>
+                    <div class="achievement-date">${progressText}</div>
+                ` : ''}
+                ${achievement.unlocked ? `<div class="achievement-date">Unlocked: ${new Date(achievement.unlockedDate).toLocaleDateString()}</div>` : ''}
+            </div>
+        `;
+    }).join('');
+    
+    const easterEggsHtml = Object.values(achievementsData.easterEggs).map(egg => {
+        const displayName = egg.unlocked ? egg.name : (egg.lockedName || '???');
+        const displayDesc = egg.unlocked ? egg.description : egg.hint;
+        
+        return `
+            <div class="easter-egg-card ${egg.unlocked ? 'unlocked' : 'locked'}">
+                <div class="easter-egg-icon">
+                    <i class="fas ${egg.icon}"></i>
+                </div>
+                <div class="achievement-name">${displayName}</div>
+                <div class="achievement-description">${egg.unlocked ? displayDesc : `<i class="fas fa-lightbulb" style="margin-right: 0.5rem; color: var(--accent);"></i>${displayDesc}`}</div>
+                ${egg.unlocked ? `<div class="achievement-date">Found: ${new Date(egg.unlockedDate).toLocaleDateString()}</div>` : ''}
+            </div>
+        `;
+    }).join('');
+    
+    const content = `
+        <div class="achievements-content">
+            <div class="achievements-header">
+                <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                <div class="achievements-stats">
+                    <div class="achievements-stat">
+                        <div class="achievements-stat-value">${unlockedCount}/${totalCount}</div>
+                        <div class="achievements-stat-label">Achievements</div>
+                    </div>
+                    <div class="achievements-stat">
+                        <div class="achievements-stat-value">${easterEggsCount}/${totalEggs}</div>
+                        <div class="achievements-stat-label">Easter Eggs</div>
+                    </div>
+                    <div class="achievements-stat">
+                        <div class="achievements-stat-value">${Math.floor(achievementsData.totalUptime)}m</div>
+                        <div class="achievements-stat-label">Total Uptime</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievements-section">
+                <h3><i class="fas fa-medal"></i> Your Achievements</h3>
+                <div class="achievements-grid">
+                    ${achievementsHtml}
+                </div>
+            </div>
+            
+            <div class="achievements-section">
+                <h3><i class="fas fa-egg"></i> Easter Eggs</h3>
+                <div class="achievements-grid">
+                    ${easterEggsHtml}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    createWindow(
+        'Achievements',
+        'fas fa-trophy',
+        content,
+        800,
+        600,
+        'achievements',
+        true
+    );
+}
+
+let konamiCode = [];
+const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.code);
+    if (konamiCode.length > konamiSequence.length) {
+        konamiCode.shift();
+    }
+    
+    if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+        unlockEasterEgg('konami-code');
+        konamiCode = [];
+    }
+});
+
+function checkNightOwl() {
+    const hour = new Date().getHours();
+    if (hour >= 11 && hour < 3) {
+        unlockEasterEgg('night-owl');
+    }
+}
 const originalFavicon = document.querySelector('link[rel="icon"]')?.href || '';
 
 function loadCloakingConfig() {
@@ -9873,8 +10748,8 @@ function applyCloaking() {
         setFavicon(faviconUrl);
     }
     
-    showToast('Cloaking applied!', 'fa-check-circle');
-}
+showToast('Cloaking applied!', 'fa-check-circle');
+unlockAchievement('stealth-mode');}
 
 function setFavicon(url) {
     const existingFavicons = document.querySelectorAll('link[rel="icon"]');
