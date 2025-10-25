@@ -4512,6 +4512,408 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
     background: rgba(255, 255, 255, 0.08);
     color: var(--text-primary);
 }
+      .settings-container {
+    display: flex;
+    height: 100%;
+    background: rgba(10, 14, 26, 0.8);
+}
+
+.settings-sidebar {
+    width: 200px;
+    background: rgba(21, 25, 35, 0.9);
+    border-right: 1px solid var(--border);
+    padding: 1rem 0.5rem;
+    overflow-y: auto;
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.settings-nav-item:hover {
+    background: rgba(125, 211, 192, 0.1);
+    color: var(--text-primary);
+}
+
+.settings-nav-item.active {
+    background: rgba(125, 211, 192, 0.2);
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: calc(1rem - 3px);
+}
+
+.settings-nav-item i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.settings-content-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.settings-tab-content {
+    display: none;
+}
+
+.settings-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.settings-tab-content h2 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.settings-card {
+    background: rgba(30, 35, 48, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.settings-card.danger {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.settings-card-header {
+    background: rgba(21, 25, 35, 0.8);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.settings-card.danger .settings-card-header {
+    border-bottom-color: rgba(239, 68, 68, 0.3);
+}
+
+.settings-card-body {
+    padding: 1.25rem;
+}
+
+.settings-item-text {
+    flex: 1;
+}
+
+.settings-item-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.settings-item-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.settings-item-value {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.settings-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.settings-action-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(125, 211, 192, 0.15);
+    border: 1px solid rgba(125, 211, 192, 0.3);
+    border-radius: 10px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings-action-btn:hover {
+    background: rgba(125, 211, 192, 0.25);
+    border-color: rgba(125, 211, 192, 0.5);
+    transform: translateY(-1px);
+}
+
+.settings-danger-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 10px;
+    color: var(--error-red);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings-danger-btn:hover {
+    background: rgba(239, 68, 68, 0.25);
+    border-color: rgba(239, 68, 68, 0.5);
+    transform: translateY(-1px);
+}
+
+.settings-empty {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.settings-empty i {
+    font-size: 4rem;
+    color: rgba(125, 211, 192, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.settings-empty h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.settings-empty p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.theme-card {
+    background: rgba(21, 25, 35, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.theme-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.theme-preview {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(125, 211, 192, 0.2), rgba(125, 211, 192, 0.1));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.theme-preview i {
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.theme-name {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+      .help-topics-container {
+    height: 100%;
+    position: relative;
+    background: rgba(10, 14, 26, 0.8);
+}
+
+.help-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.help-topic-card {
+    background: rgba(30, 35, 48, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.help-topic-card:hover {
+    background: rgba(125, 211, 192, 0.15);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(125, 211, 192, 0.2);
+}
+
+.help-topic-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(125, 211, 192, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.help-topic-icon i {
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.help-topic-title {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.help-topic-preview {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.help-expanded-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 14, 26, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.help-expanded-view.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.help-expanded-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(21, 25, 35, 0.9);
+}
+
+.help-back-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(125, 211, 192, 0.15);
+    border: 1px solid rgba(125, 211, 192, 0.3);
+    border-radius: 10px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.help-back-btn:hover {
+    background: rgba(125, 211, 192, 0.25);
+    transform: translateX(-3px);
+}
+
+.help-expanded-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.help-expanded-content h2 {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.help-expanded-content h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.help-expanded-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.help-expanded-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.help-expanded-content li {
+    color: var(--text-secondary);
+    line-height: 2;
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.help-expanded-content li::before {
+    content: '➤';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.help-expanded-content strong {
+    color: var(--accent);
+    font-weight: 600;
+}
     </style>
   </head>
   <body>
@@ -6682,94 +7084,206 @@ if (!fileCreator.unlocked) {
           title: 'Settings',
           icon: 'fas fa-cog',
           content: `
-              <div style="padding: 1.5rem;">
-                  <div class="settings-section">
-                      <h3><i class="fas fa-clock"></i> &nbsp;Clock</h3>
-                      <div class="settings-item">
-                          <span>12-Hour Format</span>
-                          <div class="toggle-switch ${settings.use12Hour ? 'active' : ''}" onclick="toggleSetting('use12Hour')"></div>
-                      </div>
-                      <div class="settings-item">
-                          <span>Show Seconds</span>
-                          <div class="toggle-switch ${settings.showSeconds ? 'active' : ''}" onclick="toggleSetting('showSeconds')"></div>
-                      </div>
-                  </div>
-                  <div class="settings-section">
-                      <h3><i class="fas fa-desktop"></i> &nbsp;Desktop</h3>
-                      <div class="settings-item">
-                          <span>Show Desktop Icons</span>
-                          <div class="toggle-switch ${settings.showDesktopIcons ? 'active' : ''}" onclick="toggleSetting('showDesktopIcons')"></div>
-                      </div>
-                  </div>
-                  <div class="settings-section">
-                      <h3><i class="fas fa-star"></i> &nbsp;What's New</h3>
-                      <div class="settings-item">
-                          <span>Show on Startup</span>
-                          <div class="toggle-switch ${localStorage.getItem('nautilusOS_showWhatsNew') !== 'false' ? 'active' : ''}" onclick="toggleSetting('showWhatsNew')"></div>
-                      </div>
-                  </div>
-                  <div class="settings-section">
-                      <h3><i class="fas fa-palette"></i> &nbsp;Themes</h3>
-                      <div id="themeSettings">
-                          ${installedThemes.length === 0 ? `
-                              <div class="settings-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
-                                  <span>No themes installed</span>
-                                  <p style="color: var(--text-secondary); font-size: 0.85rem;">Visit the App Store to browse and install themes.</p>
-                                  <button class="editor-btn" onclick="hideContextMenu(); openApp('appstore'); setTimeout(() => { const themesBtn = document.querySelector('.appstore-section:nth-child(2)'); if(themesBtn) switchAppStoreSection('themes', themesBtn); }, 100);" style="margin-top: 0.5rem;">
-                                      <i class="fas fa-store"></i> Open App Store
-                                  </button>
-                              </div>
-                          ` : installedThemes.map(theme => `
-                              <div class="settings-item">
-                                  <span>${theme.charAt(0).toUpperCase() + theme.slice(1)} Theme</span>
-                                  <button class="editor-btn" onclick="showToast('Theme support coming soon!', 'fa-info-circle')">
-                                      Apply
-                                  </button>
-                              </div>
-                          `).join('')}
-                      </div>
-                  </div>
-
-                  <div class="settings-section">
-                      <h3><i class="fas fa-power-off"></i>&nbsp; Boot Options</h3>
-                      <div class="settings-btn" onclick="resetBootloader()">
-                          <i class="fas fa-redo"></i> Reset Boot Preference
-                      </div>
-                      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; padding: 0 1rem;">
-                          This will show the bootloader menu on next reload, allowing you to choose between graphical and command-line modes.
-                      </p>
-                  </div>
-                  <div class="settings-section">
-                      <h3><i class="fas fa-user"></i>&nbsp; Account</h3>
-                      <div class="settings-item">
-                          <span>Username</span>
-                          <span style="color: var(--accent);">${currentUsername}</span>
-                      </div>
-                      <div class="settings-item">
-                          <span>Account Type</span>
-                          <span>Standard User</span>
-                      </div>
-                  </div>
-                  <div class="settings-section">
-    <h3><i class="fas fa-file-export"></i>&nbsp; Profile Management</h3>
-    <div class="settings-btn" onclick="exportProfile()">
-        <i class="fas fa-download"></i>&nbsp; Export Profile
+    <div class="settings-container">
+        <div class="settings-sidebar">
+            <div class="settings-nav-item active" onclick="switchSettingsTab('general', this)">
+                <i class="fas fa-cog"></i>
+                <span>General</span>
+            </div>
+            <div class="settings-nav-item" onclick="switchSettingsTab('appearance', this)">
+                <i class="fas fa-palette"></i>
+                <span>Appearance</span>
+            </div>
+            <div class="settings-nav-item" onclick="switchSettingsTab('system', this)">
+                <i class="fas fa-microchip"></i>
+                <span>System</span>
+            </div>
+            <div class="settings-nav-item" onclick="switchSettingsTab('account', this)">
+                <i class="fas fa-user"></i>
+                <span>Account</span>
+            </div>
+            <div class="settings-nav-item" onclick="switchSettingsTab('advanced', this)">
+                <i class="fas fa-sliders-h"></i>
+                <span>Advanced</span>
+            </div>
+        </div>
+        
+        <div class="settings-content-area" id="settingsContentArea">
+            <div class="settings-tab-content active" data-tab="general">
+                <h2><i class="fas fa-cog"></i> General Settings</h2>
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-clock"></i>
+                        <span>Clock & Time</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <div class="settings-item">
+                            <div class="settings-item-text">
+                                <div class="settings-item-title">12-Hour Format</div>
+                                <div class="settings-item-desc">Use 12-hour time with AM/PM</div>
+                            </div>
+                            <div class="toggle-switch ${settings.use12Hour ? 'active' : ''}" onclick="toggleSetting('use12Hour')"></div>
+                        </div>
+                        <div class="settings-item">
+                            <div class="settings-item-text">
+                                <div class="settings-item-title">Show Seconds</div>
+                                <div class="settings-item-desc">Display seconds in taskbar clock</div>
+                            </div>
+                            <div class="toggle-switch ${settings.showSeconds ? 'active' : ''}" onclick="toggleSetting('showSeconds')"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-desktop"></i>
+                        <span>Desktop</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <div class="settings-item">
+                            <div class="settings-item-text">
+                                <div class="settings-item-title">Show Desktop Icons</div>
+                                <div class="settings-item-desc">Display application icons on desktop</div>
+                            </div>
+                            <div class="toggle-switch ${settings.showDesktopIcons ? 'active' : ''}" onclick="toggleSetting('showDesktopIcons')"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-star"></i>
+                        <span>What's New</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <div class="settings-item">
+                            <div class="settings-item-text">
+                                <div class="settings-item-title">Show on Startup</div>
+                                <div class="settings-item-desc">Open What's New window when logging in</div>
+                            </div>
+                            <div class="toggle-switch ${localStorage.getItem('nautilusOS_showWhatsNew') !== 'false' ? 'active' : ''}" onclick="toggleSetting('showWhatsNew')"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-tab-content" data-tab="appearance">
+                <h2><i class="fas fa-palette"></i> Appearance</h2>
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-palette"></i>
+                        <span>Themes</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <div id="themeSettings">
+                            ${installedThemes.length === 0 ? `
+                                <div class="settings-empty">
+                                    <i class="fas fa-paint-brush"></i>
+                                    <h3>No Themes Installed</h3>
+                                    <p>Visit the App Store to browse and install custom themes for NautilusOS.</p>
+                                    <button class="settings-action-btn" onclick="hideContextMenu(); openApp('appstore'); setTimeout(() => { const themesBtn = document.querySelector('.appstore-section:nth-child(2)'); if(themesBtn) switchAppStoreSection('themes', themesBtn); }, 100);">
+                                        <i class="fas fa-store"></i> Open App Store
+                                    </button>
+                                </div>
+                            ` : `
+                                <div class="theme-grid">
+                                    ${installedThemes.map(theme => `
+                                        <div class="theme-card">
+                                            <div class="theme-preview">
+                                                <i class="fas fa-sun"></i>
+                                            </div>
+                                            <div class="theme-name">${theme.charAt(0).toUpperCase() + theme.slice(1)} Theme</div>
+                                            <button class="settings-action-btn" onclick="showToast('Theme support coming soon!', 'fa-info-circle')">
+                                                Apply Theme
+                                            </button>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-tab-content" data-tab="system">
+                <h2><i class="fas fa-microchip"></i> System</h2>
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-power-off"></i>
+                        <span>Boot Options</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <p class="settings-description">
+                            Reset the boot preference to show the bootloader menu on next reload, allowing you to choose between graphical and command-line modes.
+                        </p>
+                        <button class="settings-action-btn" onclick="resetBootloader()">
+                            <i class="fas fa-redo"></i> Reset Boot Preference
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-tab-content" data-tab="account">
+                <h2><i class="fas fa-user"></i> Account</h2>
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Profile Information</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <div class="settings-item">
+                            <div class="settings-item-text">
+                                <div class="settings-item-title">Username</div>
+                                <div class="settings-item-desc">Your account username</div>
+                            </div>
+                            <div class="settings-item-value">${currentUsername}</div>
+                        </div>
+                        <div class="settings-item">
+                            <div class="settings-item-text">
+                                <div class="settings-item-title">Account Type</div>
+                                <div class="settings-item-desc">Permission level</div>
+                            </div>
+                            <div class="settings-item-value">Standard User</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <i class="fas fa-file-export"></i>
+                        <span>Profile Management</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <p class="settings-description">
+                            Export your profile to save settings, installed apps, themes, files, and preferences. Import on another device or keep as a backup.
+                        </p>
+                        <button class="settings-action-btn" onclick="exportProfile()">
+                            <i class="fas fa-download"></i> Export Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-tab-content" data-tab="advanced">
+                <h2><i class="fas fa-sliders-h"></i> Advanced</h2>
+                <div class="settings-card danger">
+                    <div class="settings-card-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Danger Zone</span>
+                    </div>
+                    <div class="settings-card-body">
+                        <p class="settings-description">
+                            This will permanently delete all your data including your account, settings, files, themes, and preferences. <strong>NOTE: Your achievements and Easter eggs will be preserved!</strong> You will be returned to the initial setup screen.
+                        </p>
+                        <button class="settings-danger-btn" onclick="resetAllData()">
+                            <i class="fas fa-trash-alt"></i> Reset All Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; padding: 0 1rem;">
-        Export your profile to save your settings, installed apps, themes, files, and preferences. You can import this profile later or on another device.
-    </p>
-</div>
-                  <div class="settings-section">
-                      <h3><i class="fas fa-exclamation-triangle"></i>&nbsp; Danger Zone</h3>
-                      <div class="settings-btn" onclick="resetAllData()" style="background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.3); color: #ef4444;">
-                          <i class="fas fa-trash-alt"></i> Reset All Data
-                      </div>
-<p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; padding: 0 1rem;">
-    This will permanently delete all your data including your account, settings, files, themes, and preferences. <strong>NOTE: Your achievements and Easter eggs will be preserved!</strong> You will be returned to the initial setup screen.
-</p>
-                  </div>
-              </div>
-          `,
+`,
           noPadding: true,
           width: 900,
           height: 600
@@ -6887,102 +7401,94 @@ if (!fileCreator.unlocked) {
           height: 600
       },
       help: {
-          title: 'Help',
-          icon: 'fas fa-question-circle',
-          content: `
-              <div class="help-content">
-                  <div class="help-section">
-                      <h3><i class="fas fa-info-circle"></i> Welcome to NautilusOS</h3>
-                      <p>NautilusOS is a fully-featured web-based operating system with a complete desktop environment, virtual file system, and productivity applications.</p>
-                  </div>
-<div class="help-section">
-                      <h3><i class="fa-solid fa-mask"></i> Cloaking</h3>
-                      <p>Disguise your browser tab with custom titles and favicons, as well as auto-rotate features to keep your tab constantly changing.</p>
-                      
-                  </div>
-                  
-                  <div class="help-section">
-                      <h3><i class="fas fa-power-off"></i> Boot Options</h3>
-                      <p>NautilusOS offers two boot modes:</p>
-                      <ul>
-                          <li><strong>Nautilus OS (Graphical)</strong> - Full desktop environment with windows, icons, and applications</li>
-                          <li><strong>Nautilus OS (Command Line)</strong> - Terminal-only interface for command-line operations</li>
-                      </ul>
-                      <p>Your boot choice is remembered automatically. To change it, open Settings and click Reset Boot Preference.</p>
-                  </div>
-
-                  <div class="help-section">
-                      <h3><i class="fa-solid fa-store"></i> Applications</h3>
-                      <ul>
-                          <li><strong>Files</strong> - Browse and manage your virtual file system with tree navigation, create folders, and organize documents</li>
-                          <li><strong>Terminal</strong> - Access command-line interface with common Unix commands (help, ls, clear, date, echo, gui)</li>
-                          <li><strong>Nautilus Browser</strong> - Browse the web with multiple tabs, navigation controls, and history</li>
-                          <li><strong>Text Editor</strong> - Create and edit text files with save, save as, and download to device options</li>
-                          <li><strong>Music</strong> - Play audio files with playback controls, volume adjustment, loop, and seeking</li>
-                          <li><strong>Photos</strong> - View screenshots and images with full-screen preview and delete options</li>
-                          <li><strong>Calculator</strong> - Perform calculations with basic operations, decimals, and percentages</li>
-                          <li><strong>Settings</strong> - Customize clock format, desktop icons, themes, and boot options</li>
-                          <li><strong>App Store</strong> - Browse and install themes and future apps</li>
-<li><strong>Help</strong> - Access this comprehensive guide to NautilusOS features</li>
-<li><strong>Achievements</strong> - Track your progress with 12 achievements and 4 hidden Easter eggs to discover</li>
-                      </ul>
-                  </div>
-
-                  <div class="help-section">
-                      <h3><i class="fas fa-desktop"></i> Desktop Features</h3>
-                      <ul>
-                          <li><strong>Desktop Icons</strong> - Double-click to open apps, drag and drop to rearrange with grid snapping</li>
-                          <li><strong>Start Menu</strong> - Click the fish icon to access all applications and sign out</li>
-                          <li><strong>Taskbar</strong> - Shows pinned apps, open windows, and system tray with clock and indicators</li>
-                          <li><strong>Windows</strong> - Drag title bar to move, resize from any edge, minimize/maximize/close with buttons</li>
-                          <li><strong>Context Menus</strong> - Right-click on desktop, icons, and windows for quick actions</li>
-                      </ul>
-                  </div>
-
-                  <div class="help-section">
-                      <h3><i class="fas fa-bolt"></i> Quick Actions & Notifications</h3>
-                      <ul>
-                          <li><strong>Quick Actions Panel</strong> - Click the bolt icon in taskbar for screenshot capture and close all windows</li>
-                          <li><strong>Notification Center</strong> - Click bell icon to view system message history and manage notifications</li>
-                          <li><strong>Toast Notifications</strong> - Temporary pop-ups show important system messages and confirmations</li>
-                      </ul>
-                  </div>
-
-                  <div class="help-section">
-                      <h3><i class="fas fa-camera"></i> Taking Screenshots</h3>
-                      <p>Capture your desktop:</p>
-                      <ul>
-                          <li>Click Quick Actions (bolt icon) in taskbar</li>
-                          <li>Select Screenshot option</li>
-                          <li>Choose which screen/window to capture in browser dialog</li>
-                          <li>Screenshot automatically saves to Photos folder with date and time</li>
-                          <li>Photos app opens automatically to view your screenshot</li>
-                      </ul>
-                  </div>
-
-                  <div class="help-section">
-                      <h3><i class="fas fa-cog"></i> Settings & Customization</h3>
-                      <ul>
-                          <li><strong>Clock Settings</strong> - Toggle between 12/24 hour format, show/hide seconds</li>
-                          <li><strong>Desktop Icons</strong> - Show or hide all desktop icons</li>
-                          <li><strong>Themes</strong> - Install and apply custom color schemes from App Store</li>
-                          <li><strong>Boot Options</strong> - Reset boot preference to choose mode on next reload</li>
-                      </ul>
-                  </div>
-
-                  <div class="help-section">
-                      <h3><i class="fas fa-keyboard"></i> Tips & Tricks</h3>
-                      <ul>
-                          <li>Drag files between folders in Files app for quick organization</li>
-                          <li>Use browser tabs to multitask across multiple websites</li>
-                          <li>Save text files to device to download them to your real computer</li>
-                          <li>Right-click anywhere for context menus with quick actions</li>
-                          <li>Check notification history to review past system messages</li>
-                          <li>Use calculator for quick math without opening separate tools</li>
-                      </ul>
-                  </div>
-              </div>
-          `,
+    title: 'Help',
+    icon: 'fas fa-question-circle',
+    content: `
+        <div class="help-topics-container">
+            <div class="help-topics-grid" id="helpTopicsGrid">
+                <div class="help-topic-card" onclick="expandHelpTopic('welcome')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="help-topic-title">Welcome</div>
+                    <div class="help-topic-preview">Introduction to NautilusOS</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('cloaking')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-mask"></i>
+                    </div>
+                    <div class="help-topic-title">Cloaking</div>
+                    <div class="help-topic-preview">Tab disguise features</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('boot')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-power-off"></i>
+                    </div>
+                    <div class="help-topic-title">Boot Options</div>
+                    <div class="help-topic-preview">Graphical vs command-line</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('apps')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <div class="help-topic-title">Applications</div>
+                    <div class="help-topic-preview">Built-in apps guide</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('desktop')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="help-topic-title">Desktop</div>
+                    <div class="help-topic-preview">Icons, taskbar & windows</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('notifications')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="help-topic-title">Notifications</div>
+                    <div class="help-topic-preview">Quick actions & alerts</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('screenshots')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="help-topic-title">Screenshots</div>
+                    <div class="help-topic-preview">Capture your desktop</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('settings')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="help-topic-title">Settings</div>
+                    <div class="help-topic-preview">Customize your experience</div>
+                </div>
+                
+                <div class="help-topic-card" onclick="expandHelpTopic('tips')">
+                    <div class="help-topic-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="help-topic-title">Tips & Tricks</div>
+                    <div class="help-topic-preview">Pro user shortcuts</div>
+                </div>
+            </div>
+            
+            <div class="help-expanded-view" id="helpExpandedView">
+                <div class="help-expanded-header">
+                    <button class="help-back-btn" onclick="closeHelpTopic()">
+                        <i class="fas fa-arrow-left"></i> Back to Topics
+                    </button>
+                </div>
+                <div class="help-expanded-content" id="helpExpandedContent"></div>
+            </div>
+        </div>
+    `,
           noPadding: true,
           width: 900,
           height: 600
@@ -11023,6 +11529,241 @@ function updateLoginScreen() {
         if (loginSubtitle) loginSubtitle.textContent = 'Sign in to continue';
         if (loginContainer) loginContainer.classList.remove('passwordless');
     }
+}
+function switchSettingsTab(tabName, element) {
+    document.querySelectorAll('.settings-nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    element.classList.add('active');
+    
+    document.querySelectorAll('.settings-tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    const targetContent = document.querySelector(`.settings-tab-content[data-tab="${tabName}"]`);
+    if (targetContent) {
+        targetContent.classList.add('active');
+    }
+}
+      function expandHelpTopic(topicId) {
+    const expandedView = document.getElementById('helpExpandedView');
+    const expandedContent = document.getElementById('helpExpandedContent');
+    
+    const topics = {
+        welcome: {
+            title: 'Welcome to NautilusOS',
+            icon: 'fa-info-circle',
+            content: `
+                <h2><i class="fas fa-info-circle"></i> Welcome to NautilusOS</h2>
+                <p>NautilusOS is a fully-featured web-based operating system with a complete desktop environment, virtual file system, and productivity applications.</p>
+                <p>This help system will guide you through all the features and capabilities of NautilusOS. Select any topic from the main menu to learn more.</p>
+            `
+        },
+        cloaking: {
+            title: 'Cloaking',
+            icon: 'fa-mask',
+            content: `
+                <h2><i class="fas fa-mask"></i> Cloaking</h2>
+                <p>Disguise your browser tab with custom titles and favicons, as well as auto-rotate features to keep your tab constantly changing.</p>
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Custom Title</strong> - Change the tab title to anything you want</li>
+                    <li><strong>Custom Favicon</strong> - Set any website's favicon (just enter the URL)</li>
+                    <li><strong>Auto-Rotate</strong> - Automatically cycle through multiple disguises</li>
+                    <li><strong>Rotation Speed</strong> - Control how fast the tab changes (1-300 seconds)</li>
+                </ul>
+            `
+        },
+        boot: {
+            title: 'Boot Options',
+            icon: 'fa-power-off',
+            content: `
+                <h2><i class="fas fa-power-off"></i> Boot Options</h2>
+                <p>NautilusOS offers two boot modes:</p>
+                <ul>
+                    <li><strong>Nautilus OS (Graphical)</strong> - Full desktop environment with windows, icons, and applications</li>
+                    <li><strong>Nautilus OS (Command Line)</strong> - Terminal-only interface for command-line operations</li>
+                </ul>
+                <p>Your boot choice is remembered automatically. To change it, open Settings → System → Reset Boot Preference.</p>
+            `
+        },
+        apps: {
+            title: 'Applications',
+            icon: 'fa-th',
+            content: `
+                <h2><i class="fas fa-th"></i> Applications</h2>
+                <ul>
+                    <li><strong>Files</strong> - Browse and manage your virtual file system with tree navigation</li>
+                    <li><strong>Terminal</strong> - Access command-line interface with Unix commands</li>
+                    <li><strong>Nautilus Browser</strong> - Browse the web with multiple tabs and navigation</li>
+                    <li><strong>Text Editor</strong> - Create and edit text files with save options</li>
+                    <li><strong>Music</strong> - Play audio files with playback controls</li>
+                    <li><strong>Photos</strong> - View screenshots and images</li>
+                    <li><strong>Calculator</strong> - Perform calculations with basic operations</li>
+                    <li><strong>Settings</strong> - Customize clock format, desktop icons, and themes</li>
+                    <li><strong>App Store</strong> - Browse and install themes and apps</li>
+                    <li><strong>Achievements</strong> - Track your progress with achievements and Easter eggs</li>
+                    <li><strong>Cloaking</strong> - Disguise your browser tab</li>
+                </ul>
+            `
+        },
+        desktop: {
+            title: 'Desktop Features',
+            icon: 'fa-desktop',
+            content: `
+                <h2><i class="fas fa-desktop"></i> Desktop Features</h2>
+                <h3>Desktop Icons</h3>
+                <ul>
+                    <li><strong>Double-click</strong> to open applications</li>
+                    <li><strong>Drag and drop</strong> to rearrange with automatic grid snapping</li>
+                    <li><strong>Right-click</strong> for context menu with properties and actions</li>
+                </ul>
+                <h3>Start Menu</h3>
+                <p>Click the fish icon in the taskbar to access all applications, view your profile, and sign out or shut down the system.</p>
+                <h3>Taskbar</h3>
+                <ul>
+                    <li>Shows pinned apps and currently open windows</li>
+                    <li>Visual indicators show active and minimized windows</li>
+                    <li>System tray displays notifications, quick actions, and clock</li>
+                </ul>
+                <h3>Windows</h3>
+                <ul>
+                    <li><strong>Drag title bar</strong> to move windows</li>
+                    <li><strong>Resize</strong> from any edge or corner</li>
+                    <li><strong>Minimize</strong> - Hide window (still open in taskbar)</li>
+                    <li><strong>Maximize</strong> - Full screen mode</li>
+                    <li><strong>Close</strong> - Completely close the application</li>
+                </ul>
+            `
+        },
+        notifications: {
+            title: 'Notifications & Quick Actions',
+            icon: 'fa-bell',
+            content: `
+                <h2><i class="fas fa-bell"></i> Notifications & Quick Actions</h2>
+                <h3>Quick Actions Panel</h3>
+                <p>Click the <strong>bolt icon</strong> in the taskbar to access:</p>
+                <ul>
+                    <li><strong>Screenshot</strong> - Capture your desktop instantly</li>
+                    <li><strong>Close All</strong> - Close all open windows at once</li>
+                    <li><strong>Sign Out</strong> - Return to login screen</li>
+                    <li><strong>Shut Down</strong> - Exit NautilusOS completely</li>
+                </ul>
+                <h3>Notification Center</h3>
+                <p>Click the <strong>bell icon</strong> to view your notification history. All system messages are stored here so you can review them later.</p>
+                <ul>
+                    <li>View up to 50 recent notifications</li>
+                    <li>See when each notification was received</li>
+                    <li>Clear individual notifications or all at once</li>
+                </ul>
+            `
+        },
+        screenshots: {
+            title: 'Taking Screenshots',
+            icon: 'fa-camera',
+            content: `
+                <h2><i class="fas fa-camera"></i> Taking Screenshots</h2>
+                <p>Capture your desktop in just a few steps:</p>
+                <h3>How to Take a Screenshot</h3>
+                <ul>
+                    <li>Click <strong>Quick Actions</strong> (bolt icon) in the taskbar</li>
+                    <li>Select <strong>Screenshot</strong> option</li>
+                    <li>Choose which screen/window to capture in the browser dialog</li>
+                    <li>Your screenshot automatically saves to the Photos folder</li>
+                    <li>The Photos app opens automatically to view it</li>
+                </ul>
+                <h3>Screenshot Features</h3>
+                <ul>
+                    <li>Automatic file naming with date and timestamp</li>
+                    <li>Full screen or individual window capture</li>
+                    <li>View, organize, and delete screenshots in Photos app</li>
+                    <li>Full-screen preview by clicking any photo</li>
+                </ul>
+            `
+        },
+        settings: {
+            title: 'Settings & Customization',
+            icon: 'fa-cog',
+            content: `
+                <h2><i class="fas fa-cog"></i> Settings & Customization</h2>
+                <h3>General Settings</h3>
+                <ul>
+                    <li><strong>Clock Format</strong> - Toggle between 12/24 hour format</li>
+                    <li><strong>Show Seconds</strong> - Display seconds in taskbar clock</li>
+                    <li><strong>Desktop Icons</strong> - Show or hide all desktop icons</li>
+                    <li><strong>What's New</strong> - Control startup behavior</li>
+                </ul>
+                <h3>Appearance</h3>
+                <ul>
+                    <li>Install custom themes from the App Store</li>
+                    <li>Apply different color schemes and styles</li>
+                    <li>Preview themes before applying</li>
+                </ul>
+                <h3>System</h3>
+                <ul>
+                    <li>Reset boot preferences to choose mode on startup</li>
+                    <li>View system information and uptime</li>
+                </ul>
+                <h3>Account</h3>
+                <ul>
+                    <li>View your username and account type</li>
+                    <li><strong>Export Profile</strong> - Save all settings and data</li>
+                    <li><strong>Import Profile</strong> - Restore from backup</li>
+                </ul>
+                <h3>Advanced</h3>
+                <ul>
+                    <li><strong>Reset All Data</strong> - Return to setup (achievements preserved!)</li>
+                </ul>
+            `
+        },
+        tips: {
+            title: 'Tips & Tricks',
+            icon: 'fa-lightbulb',
+            content: `
+                <h2><i class="fas fa-lightbulb"></i> Tips & Tricks</h2>
+                <h3>Productivity Tips</h3>
+                <ul>
+                    <li>Drag files between folders in Files app for quick organization</li>
+                    <li>Use browser tabs to multitask across multiple websites</li>
+                    <li>Save text files to device to download them to your real computer</li>
+                    <li>Right-click anywhere for context menus with quick actions</li>
+                    <li>Check notification history to review past system messages</li>
+                </ul>
+                <h3>Keyboard Shortcuts</h3>
+                <ul>
+                    <li><strong>Enter</strong> in bootloader - Select highlighted option</li>
+                    <li><strong>Arrow Keys</strong> in bootloader - Navigate options</li>
+                    <li><strong>Enter</strong> in login - Submit credentials</li>
+                    <li><strong>Enter</strong> in terminal - Execute command</li>
+                </ul>
+                <h3>Hidden Features</h3>
+                <ul>
+                    <li>Try logging in with special usernames for surprises</li>
+                    <li>Explore different times of day for unique experiences</li>
+                    <li>Open many windows quickly for unexpected results</li>
+                    <li>There are 4 Easter eggs hidden throughout the system!</li>
+                </ul>
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Regularly export your profile to backup important data</li>
+                    <li>Organize files into folders for easier navigation</li>
+                    <li>Use Startup Apps to automatically launch favorite programs</li>
+                    <li>Install Task Manager to monitor running applications</li>
+                </ul>
+            `
+        }
+    };
+    
+    const topic = topics[topicId];
+    if (!topic) return;
+    
+    expandedContent.innerHTML = topic.content;
+    expandedView.classList.add('active');
+}
+
+function closeHelpTopic() {
+    const expandedView = document.getElementById('helpExpandedView');
+    expandedView.classList.remove('active');
 }
     </script>
   </body>
