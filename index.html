@@ -1216,7 +1216,7 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
               }
 
               .window-content.has-padding {
-                  padding: 1.5rem;
+                  padding: 0rem;
               }
 
               .window-content::-webkit-scrollbar {
@@ -4914,6 +4914,464 @@ background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 10
     color: var(--accent);
     font-weight: 600;
 }
+      .cloaking-container {
+    display: flex;
+    height: 100%;
+    background: rgba(10, 14, 26, 0.8);
+}
+
+.cloaking-sidebar {
+    width: 180px;
+    background: rgba(21, 25, 35, 0.9);
+    border-right: 1px solid var(--border);
+    padding: 1rem 0.5rem;
+    overflow-y: auto;
+}
+
+.cloaking-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.cloaking-nav-item:hover {
+    background: rgba(125, 211, 192, 0.1);
+    color: var(--text-primary);
+}
+
+.cloaking-nav-item.active {
+    background: rgba(125, 211, 192, 0.2);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding-left: calc(1rem - 3px);
+}
+
+.cloaking-nav-item i {
+    font-size: 1rem;
+    width: 18px;
+    text-align: center;
+}
+
+.cloaking-content-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.cloaking-tab {
+    display: none;
+}
+
+.cloaking-tab.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.cloaking-header {
+    margin-bottom: 2rem;
+}
+
+.cloaking-header h2 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cloaking-header p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.cloaking-preview-card {
+    background: rgba(30, 35, 48, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cloaking-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cloaking-preview-label {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.cloaking-preview-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(125, 211, 192, 0.15);
+    border: 1px solid rgba(125, 211, 192, 0.3);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cloaking-preview-btn:hover {
+    background: rgba(125, 211, 192, 0.25);
+}
+
+.cloaking-preview-tab {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9px 9px 0 0;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 250px;
+}
+
+.cloaking-preview-favicon {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.cloaking-preview-title {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cloaking-form-card {
+    background: rgba(30, 35, 48, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cloaking-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.cloaking-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.cloaking-label {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cloaking-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: rgba(10, 14, 26, 0.8);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.cloaking-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(10, 14, 26, 0.95);
+}
+
+.cloaking-hint {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.cloaking-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.cloaking-btn {
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.cloaking-btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: var(--bg-primary);
+    flex: 1;
+}
+
+.cloaking-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(125, 211, 192, 0.3);
+}
+
+.cloaking-btn.secondary {
+    background: rgba(125, 211, 192, 0.15);
+    border: 1px solid rgba(125, 211, 192, 0.3);
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.cloaking-btn.secondary:hover {
+    background: rgba(125, 211, 192, 0.25);
+}
+
+.cloaking-btn.warning {
+    background: rgba(255, 165, 0, 0.15);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    color: #FFA500;
+    width: 100%;
+}
+
+.cloaking-btn.warning:hover {
+    background: rgba(255, 165, 0, 0.25);
+    transform: translateY(-2px);
+}
+
+.cloaking-status-card {
+    background: rgba(30, 35, 48, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cloaking-status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cloaking-status-indicator.active .cloaking-status-icon {
+    background: rgba(125, 211, 192, 0.2);
+    color: var(--accent);
+}
+
+.cloaking-status-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.cloaking-status-text {
+    flex: 1;
+}
+
+.cloaking-status-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.cloaking-status-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.cloaking-slider-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cloaking-slider {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.cloaking-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cloaking-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.cloaking-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.cloaking-slider-value {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 50px;
+    text-align: right;
+}
+
+.cloaking-rotation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cloaking-add-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(125, 211, 192, 0.15);
+    border: 1px solid rgba(125, 211, 192, 0.3);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cloaking-add-btn:hover {
+    background: rgba(125, 211, 192, 0.25);
+}
+
+.cloaking-rotation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cloaking-hotkey-display {
+    padding: 1rem 1.5rem;
+    background: rgba(10, 14, 26, 0.8);
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.cloaking-hotkey-display:hover {
+    border-color: var(--accent);
+    background: rgba(125, 211, 192, 0.1);
+}
+
+.cloaking-hotkey-display.recording {
+    border-color: var(--accent);
+    background: rgba(125, 211, 192, 0.2);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.cloaking-panic-test {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.cloaking-presets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.cloaking-preset-card {
+    background: rgba(30, 35, 48, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cloaking-preset-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(125, 211, 192, 0.2);
+}
+
+.cloaking-preset-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.cloaking-preset-name {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.cloaking-preset-url {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
     </style>
   </head>
   <body>
@@ -6990,95 +7448,281 @@ if (!fileCreator.unlocked) {
           width: 900,
           height: 600
       },
-                    cloaking: {
+cloaking: {
     title: 'Cloaking',
     icon: 'fas fa-mask',
     content: `
-        <div style="padding: 1.5rem;">
-            <div class="settings-section">
-                <h3><i class="fas fa-mask"></i>&nbsp; Tab Cloaking</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                    Disguise your browser tab to look like a different website. Perfect for privacy!
-                </p>
-                
-                <div class="settings-item" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
-                    <label style="color: var(--text-primary); font-weight: 500;">Custom Tab Title</label>
-                    <input 
-                        type="text" 
-                        id="cloakTitle" 
-                        class="login-input" 
-                        placeholder="e.g., Google" 
-                        value="${document.title}"
-                        style="width: 100%; margin: 0;"
-                    >
+        <div class="cloaking-container">
+            <div class="cloaking-sidebar">
+                <div class="cloaking-nav-item active" onclick="switchCloakingTab('basic', this)">
+                    <i class="fas fa-mask"></i>
+                    <span>Basic Cloak</span>
                 </div>
-
-                <div class="settings-item" style="flex-direction: column; align-items: flex-start; gap: 1rem; margin-top: 1rem;">
-                    <label style="color: var(--text-primary); font-weight: 500;">Favicon URL</label>
-                    <input 
-                        type="text" 
-                        id="cloakFavicon" 
-                        class="login-input" 
-                        placeholder="e.g., https://www.google.com" 
-                        style="width: 100%; margin: 0;"
-                    >
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0;">
-                        Enter a website URL and we'll fetch its favicon automatically
-                    </p>
+                <div class="cloaking-nav-item" onclick="switchCloakingTab('rotate', this)">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Auto-Rotate</span>
                 </div>
-
-                <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                    <button class="editor-btn" onclick="applyCloaking()" style="flex: 1;">
-                        <i class="fas fa-check"></i>&nbsp; Apply
-                    </button>
-                    <button class="editor-btn" onclick="resetCloaking()" style="flex: 1;">
-                        <i class="fas fa-undo"></i>&nbsp; Reset
-                    </button>
+                <div class="cloaking-nav-item" onclick="switchCloakingTab('panic', this)">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Panic Key</span>
+                </div>
+                <div class="cloaking-nav-item" onclick="switchCloakingTab('presets', this)">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Presets</span>
                 </div>
             </div>
-
-            <div class="settings-section">
-                <h3><i class="fas fa-sync-alt"></i>&nbsp; Auto-Rotate Cloaking</h3>
-                <div class="settings-item">
-                    <span>Enable Auto-Rotate</span>
-                    <div class="toggle-switch" id="autoRotateToggle" onclick="toggleAutoRotate()"></div>
-                </div>
-
-                <div id="rotateSettings" style="display: none; margin-top: 1rem;">
-                    <div class="settings-item" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
-                        <label style="color: var(--text-primary); font-weight: 500;">Rotation Speed (seconds)</label>
-                        <input 
-                            type="number" 
-                            id="rotateSpeed" 
-                            class="login-input" 
-                            placeholder="10" 
-                            value="10"
-                            min="1"
-                            max="300"
-                            style="width: 100%; margin: 0;"
-                        >
+            
+            <div class="cloaking-content-area">
+                <div class="cloaking-tab active" data-tab="basic">
+                    <div class="cloaking-header">
+                        <h2><i class="fas fa-mask"></i> Basic Tab Cloaking</h2>
+                        <p>Disguise your browser tab to look like a different website</p>
                     </div>
+                    
+                    <div class="cloaking-preview-card">
+                        <div class="cloaking-preview-header">
+                            <div class="cloaking-preview-label">Live Preview</div>
+                            <button class="cloaking-preview-btn" onclick="updateCloakPreview()">
+                                <i class="fas fa-eye"></i> Refresh Preview
+                            </button>
+                        </div>
+                        <div class="cloaking-preview-tab" id="cloakPreview">
+                            <img class="cloaking-preview-favicon" id="previewFavicon"
+src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' font-size=85' fill='white'%3E🌐︎%3C/text%3E%3C/svg%3E"
+alt="favicon">
 
-                    <div style="margin-top: 1rem;">
-                        <label style="color: var(--text-primary); font-weight: 500; display: block; margin-bottom: 0.5rem;">
-                            Rotation List
-                        </label>
-                        <div id="rotationList"></div>
-                        <button class="editor-btn" onclick="addRotationSite()" style="width: 100%; margin-top: 0.5rem;">
-                            <i class="fas fa-plus"></i>&nbsp; Add Website
+                            <span class="cloaking-preview-title" id="previewTitle">NautilusOS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cloaking-form-card">
+                        <div class="cloaking-form-group">
+                            <label class="cloaking-label">
+                                <i class="fas fa-heading"></i> Custom Tab Title
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cloakTitle" 
+                                class="cloaking-input" 
+                                placeholder="e.g., Google" 
+                                value="${document.title}"
+                                oninput="updateCloakPreview()"
+                            >
+                            <div class="cloaking-hint">This will appear as your browser tab title</div>
+                        </div>
+                        
+                        <div class="cloaking-form-group">
+                            <label class="cloaking-label">
+                                <i class="fas fa-image"></i> Favicon URL
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cloakFavicon" 
+                                class="cloaking-input" 
+                                placeholder="e.g., https://www.google.com"
+                                oninput="updateCloakPreview()"
+                            >
+                            <div class="cloaking-hint">Enter a website URL and we'll fetch its favicon automatically</div>
+                        </div>
+                        
+                        <div class="cloaking-actions">
+                            <button class="cloaking-btn primary" onclick="applyCloaking()">
+                                <i class="fas fa-check"></i> Apply Cloak
+                            </button>
+                            <button class="cloaking-btn secondary" onclick="resetCloaking()">
+                                <i class="fas fa-undo"></i> Reset to Default
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cloaking-tab" data-tab="rotate">
+                    <div class="cloaking-header">
+                        <h2><i class="fas fa-sync-alt"></i> Auto-Rotate Cloaking</h2>
+                        <p>Automatically cycle through multiple disguises</p>
+                    </div>
+                    
+                    <div class="cloaking-status-card">
+                        <div class="cloaking-status-indicator ${cloakingConfig.autoRotate ? 'active' : ''}">
+                            <div class="cloaking-status-icon">
+                                <i class="fas ${cloakingConfig.autoRotate ? 'fa-rotate' : 'fa-rotate'}"></i>
+                            </div>
+                            <div class="cloaking-status-text">
+                                <div class="cloaking-status-title">Auto-Rotate Status</div>
+                                <div class="cloaking-status-desc">${cloakingConfig.autoRotate ? 'Currently Active' : 'Currently Inactive'}</div>
+                            </div>
+                            <div class="toggle-switch ${cloakingConfig.autoRotate ? 'active' : ''}" id="autoRotateToggle" onclick="toggleAutoRotate()"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="cloaking-form-card" id="rotateSettings" style="${cloakingConfig.autoRotate ? '' : 'opacity: 0.5; pointer-events: none;'}">
+                        <div class="cloaking-form-group">
+                            <label class="cloaking-label">
+                                <i class="fas fa-clock"></i> Rotation Speed (seconds)
+                            </label>
+                            <div class="cloaking-slider-group">
+                                <input 
+                                    type="range" 
+                                    id="rotateSpeed" 
+                                    class="cloaking-slider"
+                                    min="1"
+                                    max="300"
+                                    value="${cloakingConfig.rotateSpeed}"
+                                    oninput="updateRotateSpeedDisplay(this.value)"
+                                >
+                                <span class="cloaking-slider-value" id="rotateSpeedValue">${cloakingConfig.rotateSpeed}s</span>
+                            </div>
+                            <div class="cloaking-hint">How often the tab should change disguise</div>
+                        </div>
+                        
+                        <div class="cloaking-rotation-header">
+                            <label class="cloaking-label">
+                                <i class="fas fa-list"></i> Rotation List
+                            </label>
+                            <button class="cloaking-add-btn" onclick="addRotationSite()">
+                                <i class="fas fa-plus"></i> Add Website
+                            </button>
+                        </div>
+                        
+                        <div class="cloaking-rotation-list" id="rotationList"></div>
+                        
+                        <button class="cloaking-btn primary" onclick="saveRotationSettings()" style="margin-top: 1rem;">
+                            <i class="fas fa-save"></i> Save Rotation Settings
                         </button>
                     </div>
-
-                    <button class="editor-btn" onclick="saveRotationSettings()" style="width: 100%; margin-top: 1rem; background: rgba(125, 211, 192, 0.15); border-color: rgba(125, 211, 192, 0.3);">
-                        <i class="fas fa-save"></i>&nbsp; Save Settings
-                    </button>
+                </div>
+                
+                <div class="cloaking-tab" data-tab="panic">
+                    <div class="cloaking-header">
+                        <h2><i class="fas fa-exclamation-triangle"></i> Panic Key</h2>
+                        <p>Instantly switch to a safe tab when you need to hide quickly</p>
+                    </div>
+                    
+                    <div class="cloaking-status-card">
+                        <div class="cloaking-status-indicator ${cloakingConfig.panicKeyEnabled ? 'active' : ''}">
+                            <div class="cloaking-status-icon">
+                                <i class="fas ${cloakingConfig.panicKeyEnabled ? 'fa-shield-alt' : 'fa-shield'}"></i>
+                            </div>
+                            <div class="cloaking-status-text">
+                                <div class="cloaking-status-title">Panic Key Status</div>
+                                <div class="cloaking-status-desc">${cloakingConfig.panicKeyEnabled ? 'Armed and Ready' : 'Disabled'}</div>
+                            </div>
+                            <div class="toggle-switch ${cloakingConfig.panicKeyEnabled ? 'active' : ''}" onclick="togglePanicKey()"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="cloaking-form-card">
+                        <div class="cloaking-form-group">
+                            <label class="cloaking-label">
+                                <i class="fas fa-keyboard"></i> Panic Hotkey
+                            </label>
+                            <div class="cloaking-hotkey-display" id="panicHotkeyDisplay" onclick="recordPanicKey()">
+                                ${cloakingConfig.panicKey || 'Click to set hotkey'}
+                            </div>
+                            <div class="cloaking-hint">Press any key combination to set it as your panic hotkey</div>
+                        </div>
+                        
+                        <div class="cloaking-form-group">
+                            <label class="cloaking-label">
+                                <i class="fas fa-external-link-alt"></i> Panic URL
+                            </label>
+                            <input 
+                                type="text" 
+                                id="panicUrl" 
+                                class="cloaking-input" 
+                                placeholder="e.g., https://classroom.google.com"
+                                value="${cloakingConfig.panicUrl || ''}"
+                            >
+                            <div class="cloaking-hint">The website to instantly redirect to when panic key is pressed</div>
+                        </div>
+                        
+                        <div class="cloaking-panic-test">
+                            <button class="cloaking-btn warning" onclick="testPanicKey()">
+                                <i class="fas fa-vial"></i> Test Panic Key
+                            </button>
+                            <div class="cloaking-hint">This will trigger the panic redirect as a test</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cloaking-tab" data-tab="presets">
+                    <div class="cloaking-header">
+                        <h2><i class="fas fa-bookmark"></i> Quick Presets</h2>
+                        <p>One-click disguises for common websites</p>
+                    </div>
+                    
+                    <div class="cloaking-presets-grid">
+                        <div class="cloaking-preset-card" onclick="applyPreset('google')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #4285F4, #34A853);">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div class="cloaking-preset-name">Google</div>
+                            <div class="cloaking-preset-url">google.com</div>
+                        </div>
+                        
+                        <div class="cloaking-preset-card" onclick="applyPreset('gmail')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #EA4335, #FBBC05);">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="cloaking-preset-name">Gmail</div>
+                            <div class="cloaking-preset-url">mail.google.com</div>
+                        </div>
+                        
+                        <div class="cloaking-preset-card" onclick="applyPreset('drive')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #4285F4, #0F9D58);">
+                                <i class="fab fa-google-drive"></i>
+                            </div>
+                            <div class="cloaking-preset-name">Google Drive</div>
+                            <div class="cloaking-preset-url">drive.google.com</div>
+                        </div>
+                        
+                        <div class="cloaking-preset-card" onclick="applyPreset('classroom')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #0F9D58, #F4B400);">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="cloaking-preset-name">Classroom</div>
+                            <div class="cloaking-preset-url">classroom.google.com</div>
+                        </div>
+                        
+                        <div class="cloaking-preset-card" onclick="applyPreset('docs')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #4285F4, #4285F4);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="cloaking-preset-name">Google Docs</div>
+                            <div class="cloaking-preset-url">docs.google.com</div>
+                        </div>
+                        
+                        <div class="cloaking-preset-card" onclick="applyPreset('youtube')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="cloaking-preset-name">YouTube</div>
+                            <div class="cloaking-preset-url">youtube.com</div>
+                        </div>
+                        
+                        <div class="cloaking-preset-card" onclick="applyPreset('wikipedia')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #000000, #333333);">
+                                <i class="fab fa-wikipedia-w"></i>
+                            </div>
+                            <div class="cloaking-preset-name">Wikipedia</div>
+                            <div class="cloaking-preset-url">wikipedia.org</div>
+                        </div>
+                        
+                        <div class="cloaking-preset-card" onclick="applyPreset('github')">
+                            <div class="cloaking-preset-icon" style="background: linear-gradient(135deg, #333333, #24292e);">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="cloaking-preset-name">GitHub</div>
+                            <div class="cloaking-preset-url">github.com</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     `,
     noPadding: false,
-    width: 600,
-    height: 650
+    width: 900,
+    height: 600
 },
                       settings: {
           title: 'Settings',
@@ -10740,7 +11384,10 @@ let cloakingConfig = {
         { title: 'Gmail', url: 'https://mail.google.com' },
         { title: 'Google Drive', url: 'https://drive.google.com' }
     ],
-    currentRotationIndex: 0
+    currentRotationIndex: 0,
+    panicKeyEnabled: false,
+    panicKey: 'Escape',
+    panicUrl: 'https://classroom.google.com'
 };
 let rotationInterval = null;
 const originalTitle = document.title;
@@ -11225,10 +11872,21 @@ function loadCloakingConfig() {
     const saved = localStorage.getItem('nautilusOS_cloaking');
     if (saved) {
         try {
-            cloakingConfig = { ...cloakingConfig, ...JSON.parse(saved) };
+            const parsed = JSON.parse(saved);
+            cloakingConfig = { 
+                ...cloakingConfig, 
+                ...parsed,
+                panicKeyEnabled: parsed.panicKeyEnabled || false,
+                panicKey: parsed.panicKey || 'Escape',
+                panicUrl: parsed.panicUrl || 'https://classroom.google.com'
+            };
         } catch (e) {
             console.error('Failed to load cloaking config:', e);
         }
+    }
+    
+    if (cloakingConfig.panicKeyEnabled) {
+        setupPanicKeyListener();
     }
 }
 
@@ -11253,8 +11911,9 @@ function applyCloaking() {
         setFavicon(faviconUrl);
     }
     
-showToast('Cloaking applied!', 'fa-check-circle');
-unlockAchievement('stealth-mode');}
+    showToast('Cloaking applied!', 'fa-check-circle');
+    unlockAchievement('stealth-mode');
+}
 
 function setFavicon(url) {
     const existingFavicons = document.querySelectorAll('link[rel="icon"]');
@@ -11305,21 +11964,34 @@ function toggleAutoRotate() {
     cloakingConfig.autoRotate = !cloakingConfig.autoRotate;
     const toggle = document.getElementById('autoRotateToggle');
     const settings = document.getElementById('rotateSettings');
+    const indicator = document.querySelector('.cloaking-tab[data-tab="rotate"] .cloaking-status-indicator');
+    const statusDesc = document.querySelector('.cloaking-tab[data-tab="rotate"] .cloaking-status-desc');
     
     if (cloakingConfig.autoRotate) {
-        toggle.classList.add('active');
-        if (settings) settings.style.display = 'block';
+        if (toggle) toggle.classList.add('active');
+        if (settings) {
+            settings.style.opacity = '1';
+            settings.style.pointerEvents = 'all';
+        }
+        if (indicator) indicator.classList.add('active');
+        if (statusDesc) statusDesc.textContent = 'Currently Active';
         startRotation();
         showToast('Auto-rotate enabled', 'fa-sync-alt');
     } else {
-        toggle.classList.remove('active');
-        if (settings) settings.style.display = 'none';
+        if (toggle) toggle.classList.remove('active');
+        if (settings) {
+            settings.style.opacity = '0.5';
+            settings.style.pointerEvents = 'none';
+        }
+        if (indicator) indicator.classList.remove('active');
+        if (statusDesc) statusDesc.textContent = 'Currently Inactive';
         stopRotation();
         showToast('Auto-rotate disabled', 'fa-sync-alt');
     }
     
     saveCloakingConfig();
 }
+
 
 function startRotation() {
     if (rotationInterval) {
@@ -11361,26 +12033,25 @@ function renderRotationList() {
     if (!container) return;
     
     if (cloakingConfig.rotationList.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 1rem;">No websites added yet</p>';
+        container.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 2rem;">No websites added yet. Click "Add Website" to get started.</p>';
         return;
     }
     
     container.innerHTML = cloakingConfig.rotationList.map((site, index) => `
-        <div class="startup-item" style="margin-bottom: 0.5rem;">
-            <div class="startup-item-icon">
+        <div class="startup-item" style="margin-bottom: 0;">
+            <div class="startup-item-icon" style="width: 45px; height: 45px;">
                 <i class="fas fa-globe"></i>
             </div>
             <div class="startup-item-info">
                 <div class="startup-item-name">${site.title}</div>
                 <div class="startup-item-status">${site.url}</div>
             </div>
-            <button class="file-action-btn delete" onclick="removeRotationSite(${index})" style="padding: 0.5rem 0.75rem;">
+            <button class="file-action-btn delete" onclick="removeRotationSite(${index})" style="padding: 0.6rem 0.875rem;">
                 <i class="fas fa-trash"></i>
             </button>
         </div>
     `).join('');
 }
-
 async function addRotationSite() {
     const title = await prompt('Enter website title (e.g., Google):');
     if (!title) return;
@@ -11418,6 +12089,7 @@ function saveRotationSettings() {
     showToast('Rotation settings saved!', 'fa-save');
 }
 
+
 window.addEventListener('DOMContentLoaded', () => {
     loadCloakingConfig();
     
@@ -11426,11 +12098,15 @@ window.addEventListener('DOMContentLoaded', () => {
             startRotation();
         }, 2000);
     }
+    
+    if (cloakingConfig.panicKeyEnabled) {
+        setupPanicKeyListener();
+    }
 });
 
-const _originalOpenAppForCloaking = openApp;
+const _originalOpenAppForCloaking2 = openApp;
 window.openApp = openApp = function(appName, ...args) {
-    _originalOpenAppForCloaking(appName, ...args);
+    _originalOpenAppForCloaking2(appName, ...args);
     
     if (appName === 'cloaking') {
         setTimeout(() => {
@@ -11439,15 +12115,31 @@ window.openApp = openApp = function(appName, ...args) {
             
             if (toggle && cloakingConfig.autoRotate) {
                 toggle.classList.add('active');
-                if (settings) settings.style.display = 'block';
+                if (settings) {
+                    settings.style.opacity = '1';
+                    settings.style.pointerEvents = 'all';
+                }
             }
             
             const speedInput = document.getElementById('rotateSpeed');
             if (speedInput) {
                 speedInput.value = cloakingConfig.rotateSpeed;
+                updateRotateSpeedDisplay(cloakingConfig.rotateSpeed);
             }
             
             renderRotationList();
+            
+            const panicUrl = document.getElementById('panicUrl');
+            if (panicUrl) {
+                panicUrl.value = cloakingConfig.panicUrl || '';
+            }
+            
+            const panicDisplay = document.getElementById('panicHotkeyDisplay');
+            if (panicDisplay) {
+                panicDisplay.textContent = cloakingConfig.panicKey || 'Click to set hotkey';
+            }
+            
+            updateCloakPreview();
         }, 100);
     }
 };
@@ -11764,6 +12456,245 @@ function switchSettingsTab(tabName, element) {
 function closeHelpTopic() {
     const expandedView = document.getElementById('helpExpandedView');
     expandedView.classList.remove('active');
+}
+      function switchCloakingTab(tabName, element) {
+    document.querySelectorAll('.cloaking-nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    element.classList.add('active');
+    
+    document.querySelectorAll('.cloaking-tab').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    const targetContent = document.querySelector(`.cloaking-tab[data-tab="${tabName}"]`);
+    if (targetContent) {
+        targetContent.classList.add('active');
+    } if (tabName === 'rotate') {
+        renderRotationList();
+    }
+}
+      function updateCloakPreview() {
+    const titleInput = document.getElementById('cloakTitle');
+    const faviconInput = document.getElementById('cloakFavicon');
+    const previewTitle = document.getElementById('previewTitle');
+    const previewFavicon = document.getElementById('previewFavicon');
+    
+    if (!titleInput || !previewTitle) return;
+    
+    const title = titleInput.value.trim() || 'NautilusOS';
+    previewTitle.textContent = title;
+    
+    if (faviconInput && previewFavicon) {
+        const url = faviconInput.value.trim();
+        if (url) {
+            let domain = url;
+            try {
+                const urlObj = new URL(url.startsWith('http') ? url : 'https://' + url);
+                domain = urlObj.origin;
+            } catch (e) {
+                domain = 'https://' + url.replace(/^https?:\/\//, '');
+            }
+            previewFavicon.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+        } else {
+previewFavicon.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' font-size='75' fill='white'%3E🌐︎%3C/text%3E%3C/svg%3E";
+
+        }
+    }
+}
+      function updateRotateSpeedDisplay(value) {
+    const display = document.getElementById('rotateSpeedValue');
+    if (display) {
+        display.textContent = value + 's';
+    }
+}
+
+function togglePanicKey() {
+    cloakingConfig.panicKeyEnabled = !cloakingConfig.panicKeyEnabled;
+    saveCloakingConfig();
+    
+    const toggle = document.querySelector('.cloaking-tab[data-tab="panic"] .toggle-switch');
+    const indicator = document.querySelector('.cloaking-tab[data-tab="panic"] .cloaking-status-indicator');
+    const statusDesc = document.querySelector('.cloaking-tab[data-tab="panic"] .cloaking-status-desc');
+    
+    if (cloakingConfig.panicKeyEnabled) {
+        if (toggle) toggle.classList.add('active');
+        if (indicator) indicator.classList.add('active');
+        if (statusDesc) statusDesc.textContent = 'Armed and Ready';
+        showToast('Panic key enabled! Press ' + cloakingConfig.panicKey + ' to activate', 'fa-shield-alt');
+        setupPanicKeyListener();
+    } else {
+        if (toggle) toggle.classList.remove('active');
+        if (indicator) indicator.classList.remove('active');
+        if (statusDesc) statusDesc.textContent = 'Disabled';
+        showToast('Panic key disabled', 'fa-shield');
+        removePanicKeyListener();
+    }
+}
+
+let isRecordingPanicKey = false;
+let panicKeyListener = null;
+
+function recordPanicKey() {
+    if (isRecordingPanicKey) return;
+    
+    const display = document.getElementById('panicHotkeyDisplay');
+    if (!display) return;
+    
+    isRecordingPanicKey = true;
+    display.textContent = 'Press any key...';
+    display.classList.add('recording');
+    
+    const recordListener = (e) => {
+        e.preventDefault();
+        
+        let keyCombo = [];
+        if (e.ctrlKey) keyCombo.push('Ctrl');
+        if (e.altKey) keyCombo.push('Alt');
+        if (e.shiftKey) keyCombo.push('Shift');
+        if (e.metaKey) keyCombo.push('Meta');
+        
+        if (!['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) {
+            keyCombo.push(e.key);
+        }
+        
+        const keyString = keyCombo.join(' + ');
+        cloakingConfig.panicKey = keyString;
+        
+        display.textContent = keyString;
+        display.classList.remove('recording');
+        isRecordingPanicKey = false;
+        
+        saveCloakingConfig();
+        showToast('Panic key set to: ' + keyString, 'fa-keyboard');
+        
+        document.removeEventListener('keydown', recordListener);
+        
+        if (cloakingConfig.panicKeyEnabled) {
+            removePanicKeyListener();
+            setupPanicKeyListener();
+        }
+    };
+    
+    document.addEventListener('keydown', recordListener);
+}
+
+function setupPanicKeyListener() {
+    removePanicKeyListener();
+    
+    panicKeyListener = (e) => {
+        if (!cloakingConfig.panicKeyEnabled) return;
+        
+        let pressedCombo = [];
+        if (e.ctrlKey) pressedCombo.push('Ctrl');
+        if (e.altKey) pressedCombo.push('Alt');
+        if (e.shiftKey) pressedCombo.push('Shift');
+        if (e.metaKey) pressedCombo.push('Meta');
+        
+        if (!['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) {
+            pressedCombo.push(e.key);
+        }
+        
+        const pressedString = pressedCombo.join(' + ');
+        
+        if (pressedString === cloakingConfig.panicKey) {
+            e.preventDefault();
+            triggerPanicMode();
+        }
+    };
+    
+    document.addEventListener('keydown', panicKeyListener);
+}
+
+function removePanicKeyListener() {
+    if (panicKeyListener) {
+        document.removeEventListener('keydown', panicKeyListener);
+        panicKeyListener = null;
+    }
+}
+
+function testPanicKey() {
+    const url = document.getElementById('panicUrl')?.value.trim();
+    if (!url) {
+        showToast('Please enter a panic URL first', 'fa-exclamation-circle');
+        return;
+    }
+    
+    showToast('Testing panic redirect in 2 seconds...', 'fa-vial');
+    setTimeout(() => {
+        triggerPanicMode();
+    }, 2000);
+}
+
+function triggerPanicMode() {
+    const url = cloakingConfig.panicUrl || 'https://classroom.google.com';
+    
+    Object.keys(windows).forEach(appName => {
+        const win = windows[appName];
+        if (win) {
+            win.style.display = 'none';
+        }
+    });
+    
+    let domain = url;
+    try {
+        const urlObj = new URL(url.startsWith('http') ? url : 'https://' + url);
+        domain = urlObj.origin;
+        document.title = urlObj.hostname;
+    } catch (e) {
+        domain = 'https://' + url.replace(/^https?:\/\//, '');
+        document.title = url.replace(/^https?:\/\//, '').split('/')[0];
+    }
+    
+    setFavicon(domain);
+    
+    window.location.href = url.startsWith('http') ? url : 'https://' + url;
+}
+
+function applyPreset(presetName) {
+    const presets = {
+        google: {
+            title: 'Google',
+            url: 'https://www.google.com'
+        },
+        gmail: {
+            title: 'Gmail',
+            url: 'https://mail.google.com'
+        },
+        drive: {
+            title: 'Google Drive',
+            url: 'https://drive.google.com'
+        },
+        classroom: {
+            title: 'Google Classroom',
+            url: 'https://classroom.google.com'
+        },
+        docs: {
+            title: 'Google Docs',
+            url: 'https://docs.google.com'
+        },
+        youtube: {
+            title: 'YouTube',
+            url: 'https://www.youtube.com'
+        },
+        wikipedia: {
+            title: 'Wikipedia',
+            url: 'https://www.wikipedia.org'
+        },
+        github: {
+            title: 'GitHub',
+            url: 'https://github.com'
+        }
+    };
+    
+    const preset = presets[presetName];
+    if (!preset) return;
+    
+    document.title = preset.title;
+    setFavicon(preset.url);
+    
+    showToast(`Applied ${preset.title} preset!`, 'fa-check-circle');
+    unlockAchievement('stealth-mode');
 }
     </script>
   </body>
