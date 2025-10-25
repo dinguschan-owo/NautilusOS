@@ -45,6 +45,7 @@ basically... a whole little os in your browser :D
 <img width="1918" height="906" alt="image" src="https://github.com/user-attachments/assets/13b106be-49c5-416f-bf01-b5915491eb88" />
 <img width="1916" height="912" alt="image" src="https://github.com/user-attachments/assets/633fd5c8-ba2e-4e95-b6b7-71c8e6cf0d4b" />
 <img width="1916" height="908" alt="image" src="https://github.com/user-attachments/assets/26fec667-6acf-4dc5-bd43-be6872560482" />
+<img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/b042fbf3-fd80-4b53-9a1f-bc62da8e6424" />
 
 ---
 
